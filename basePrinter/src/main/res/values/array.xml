@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="connection_method">
+        <item>蓝牙</item>
+        <item>无线</item>
+    </string-array>
+    <string-array name="printer_type">
+        <item>ZR668/ZR638/ZR520/ZR328</item>
+<!--        <item>DT630</item>-->
+    </string-array>
+    <string-array name="print_mode">
+        <item>图片打印</item>
+        <item>PDF打印</item>
+    </string-array>
+    <string-array name="paper_direction">
+        <item>  </item>
+        <item>90°</item>
+        <item>180°</item>
+    </string-array>
+</resources>

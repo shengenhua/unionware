@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 三角形按钮 -->
+    <declare-styleable name="TriangleButton">
+        <attr name="triangleColor" format="color" />
+
+        <attr name="triangleSeat" >
+            <enum name="topRight" value="0x01" />
+            <enum name="topLeft" value="0x02" />
+            <enum name="endRight" value="0x03" />
+            <enum name="endLeft" value="0x04" />
+        </attr>
+    </declare-styleable>
+
+    <!-- 设置栏 -->
+    <declare-styleable name="SettingBar">
+        <!-- 左边 -->
+        <attr name="bar_leftText" format="string"/>
+        <attr name="bar_leftTextColor" format="color" />
+        <attr name="bar_leftTextSize" format="dimension" />
+        <attr name="bar_leftTextHint" format="string"/>
+        <attr name="bar_leftDrawable" format="reference" />
+        <attr name="bar_leftDrawablePadding" format="dimension" />
+        <attr name="bar_leftDrawableSize" format="dimension" />
+        <attr name="bar_leftDrawableTint" format="color" />
+        <!-- 右边 -->
+        <attr name="bar_rightText" format="string" />
+        <attr name="bar_rightTextColor" format="color" />
+        <attr name="bar_rightTextSize" format="dimension" />
+        <attr name="bar_rightTextHint" format="string"/>
+        <attr name="bar_rightDrawable" format="reference" />
+        <attr name="bar_rightDrawablePadding" format="dimension" />
+        <attr name="bar_rightDrawableSize" format="dimension" />
+        <attr name="bar_rightDrawableTint" format="color" />
+        <!-- 分割线 -->
+        <attr name="bar_lineVisible" format="boolean" />
+        <attr name="bar_lineDrawable" format="reference|color" />
+        <attr name="bar_lineSize" format="dimension" />
+        <attr name="bar_lineMargin" format="dimension" />
+    </declare-styleable>
+</resources>

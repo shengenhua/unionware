@@ -1,0 +1,7 @@
+<resources>
+    <string name="conn_first">请先连接打印机！</string>
+    <string name="server_linkerr">连接失败，请重试。</string>
+    <string name="server_unknowlanguage">未知的语言</string>
+    <string name="split_searched">查找结束</string>
+    <string name="split_searcherr">查找错误：</string>
+</resources>

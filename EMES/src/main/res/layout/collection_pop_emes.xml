@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_15"
+    android:background="@drawable/bg_dialog_fragment_bg"
+    android:orientation="vertical"
+    android:paddingTop="15dp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:lines="1"
+        android:paddingBottom="5dp"
+        android:textColor="@color/base_title_color"
+        android:textSize="@dimen/sp_18"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:paddingBottom="5dp"
+        android:textColor="@color/base_title_color"
+        android:textSize="@dimen/sp_18" />
+
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:lines="1"
+        android:paddingBottom="5dp"
+        android:textColor="@color/base_title_color"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tvBarCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center_horizontal"
+        android:lines="1"
+        android:textStyle="bold"
+        android:paddingBottom="5dp"
+        android:textColor="@color/base_title_color"
+        android:textSize="@dimen/sp_13" />
+
+    <include
+        android:id="@+id/clFeature"
+        layout="@layout/layout_bar_code_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvGasName"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:lines="1"
+            android:paddingBottom="5dp"
+            android:textColor="@color/base_title_color"
+            android:textSize="@dimen/item_value_size" />
+        <TextView
+            android:id="@+id/tvGasBarcode"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:lines="1"
+            android:paddingBottom="5dp"
+            android:textColor="@color/base_title_color"
+            android:textSize="@dimen/item_value_size" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="@dimen/dp_20"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingEnd="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_10" />
+
+
+    <View
+        android:id="@+id/xpopup_divider1"
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:background="@color/base_list_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/dialog_cancel"
+            android:textColor="#666666"
+            android:textSize="@dimen/sp_14" />
+
+        <View
+            android:id="@+id/xpopup_divider2"
+            android:layout_width=".5dp"
+            android:layout_height="match_parent"
+            android:background="@color/base_list_divider" />
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/dialog_ok"
+            android:textSize="@dimen/sp_14" />
+    </LinearLayout>
+</LinearLayout>
+

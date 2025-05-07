@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_show_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/dp_20"
+        android:paddingTop="@dimen/dp_4"
+        android:text="日期：2023年7月21日 11:03:51"
+        android:textColor="@color/common_text_gray"
+        android:textSize="@dimen/sp_14" />
+
+</LinearLayout>

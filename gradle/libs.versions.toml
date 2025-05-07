@@ -1,0 +1,124 @@
+[versions]
+agp = "8.7.3"
+apacheCommonsCollections4 = "4.1"
+apacheCommonsLang3 = "3.13.0"
+fatAarVersion = "1.3.8"
+floatingactionbutton = "1.10.1"
+kotlin = "2.0.21"
+coreKtx = "1.13.1"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
+appcompat = "1.7.0"
+material = "1.10.0"
+activity = "1.8.0"
+constraintlayout = "2.1.4"
+
+mmkv = "1.2.15"
+roomVersion = "2.5.1"
+lifecycle = "2.6.1"
+baserecyclerviewadapterhelperVersion = "3.0.11"
+baserecyclerviewadapterhelper4 = "4.1.2"
+core = "3.4.0"
+gson = "2.10.1"
+arouter = "1.5.2"
+immersionbar = "3.2.2"
+persistentcookiejar = "v1.0.1"
+okhttp3 = "4.9.0"
+eventbus = "3.3.1"
+dagger = "2.51.1"
+lifecycleRuntimeKtx = "2.6.2"
+activityCompose = "1.8.0"
+composeBom = "2024.04.01"
+retrofit = "2.9.0"
+rxandroidVersion = "2.1.1"
+rxkit = "2.6.2"
+scwangRefresh = "2.0.6"
+svnkitVersion = "1.8.11"
+swiperecyclerview = "1.4.8"
+utilcodex = "1.31.1"
+viewbinding = "8.7.2"
+lucksiege = "v3.11.2"
+bumptech = "4.14.2"
+xpopup = "2.9.19"
+zxingAndroidEmbedded = "3.6.0"
+startupRuntime = "1.2.0"
+
+
+[libraries]
+fat-aar = { module = "com.github.kezong:fat-aar", version.ref = "fatAarVersion" }
+floatingactionbutton = { module = "com.getbase:floatingactionbutton", version.ref = "floatingactionbutton" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomVersion" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
+androidx-lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+arouter-compiler = { module = "com.alibaba:arouter-compiler", version.ref = "arouter" }
+arouter-api = { module = "com.alibaba:arouter-api", version.ref = "arouter" }
+cymchad-adapterhelper4 = { module = "io.github.cymchad:BaseRecyclerViewAdapterHelper4", version.ref = "baserecyclerviewadapterhelper4" }
+bumptech-glide = { module = "com.github.bumptech.glide:glide", version.ref = "bumptech" }
+bumptech-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "bumptech" }
+cymchad-adapterhelper = { module = "com.github.CymChad:BaseRecyclerViewAdapterHelper", version.ref = "baserecyclerviewadapterhelperVersion" }
+geyifeng-immersionbar = { module = "com.geyifeng.immersionbar:immersionbar", version.ref = "immersionbar" }
+geyifeng-immersionbar-ktx = { module = "com.geyifeng.immersionbar:immersionbar-ktx", version.ref = "immersionbar" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+okhttp3-logging-interceptor2 = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp3" }
+github-franmontiel-persistentcookiejar11 = { module = "com.github.franmontiel:PersistentCookieJar", version.ref = "persistentcookiejar" }
+eventbus = { module = "org.greenrobot:eventbus", version.ref = "eventbus" }
+dagger-hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger" }
+dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+lucksiege-ucrop = { module = "io.github.lucksiege:ucrop", version.ref = "lucksiege" }
+lucksiege-compress = { module = "io.github.lucksiege:compress", version.ref = "lucksiege" }
+lucksiege-pictureselector = { module = "io.github.lucksiege:pictureselector", version.ref = "lucksiege" }
+androidx-viewbinding = { group = "androidx.databinding", name = "viewbinding", version.ref = "viewbinding" }
+mmkv = { module = "com.tencent:mmkv", version.ref = "mmkv" }
+okhttp3-mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "okhttp3" }
+org-apache-commons-commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "apacheCommonsLang3" }
+org-apache-commons-commons-collections4 = { module = "org.apache.commons:commons-collections4", version.ref = "apacheCommonsCollections4" }
+refresh-header-material = { module = "io.github.scwang90:refresh-header-material", version.ref = "scwangRefresh" }
+refresh-header-falsify = { module = "io.github.scwang90:refresh-header-falsify", version.ref = "scwangRefresh" }
+refresh-header-radar = { module = "io.github.scwang90:refresh-header-radar", version.ref = "scwangRefresh" }
+refresh-header-classics = { module = "io.github.scwang90:refresh-header-classics", version.ref = "scwangRefresh" }
+refresh-layout-kernel = { module = "io.github.scwang90:refresh-layout-kernel", version.ref = "scwangRefresh" }
+refresh-footer-ball = { module = "io.github.scwang90:refresh-footer-ball", version.ref = "scwangRefresh" }
+refresh-footer-classics = { module = "io.github.scwang90:refresh-footer-classics", version.ref = "scwangRefresh" }
+retrofit2-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit2-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+retrofit2-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
+retrofit2-squareup-adapter-rxjava2 = { module = "com.squareup.retrofit2:adapter-rxjava2", version.ref = "retrofit" }
+rxjava2-rxandroid = { module = "io.reactivex.rxjava2:rxandroid", version.ref = "rxandroidVersion" }
+svnkit = { module = "org.tmatesoft.svnkit:svnkit", version.ref = "svnkitVersion" }
+swiperecyclerview = { module = "com.github.luqiming666:SwipeRecyclerView", version.ref = "swiperecyclerview" }
+rxkit = { module = "com.github.tamsiree.RxTool:RxKit", version.ref = "rxkit" }
+utilcodex = { module = "com.blankj:utilcodex", version.ref = "utilcodex" }
+xpopup = { module = "com.github.li-xiaojun:XPopup", version.ref = "xpopup" }
+zxing-core = { module = "com.google.zxing:core", version.ref = "core" }
+zxing-android-embedded = { module = "com.journeyapps:zxing-android-embedded", version.ref = "zxingAndroidEmbedded" }
+androidx-startup-runtime = { group = "androidx.startup", name = "startup-runtime", version.ref = "startupRuntime" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+dagger-hint-android = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
+tmatesoft-svnkit = { id = "org.tmatesoft.svnkit", version.ref = "svnkitVersion" }
+fat-aar = { id = "com.kezong.fat-aar", version.ref = "fatAarVersion" }

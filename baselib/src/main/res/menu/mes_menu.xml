@@ -1,0 +1,25 @@
+<!-- res/menu/menu_main.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_other_2"
+        android:orderInCategory="100"
+        android:title="其他2"
+        android:visible="false"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_other"
+        android:orderInCategory="100"
+        android:title="其他"
+        android:visible="false"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_submit"
+        android:orderInCategory="100"
+        android:textSize="@dimen/sp_14"
+        android:title="提交"
+        android:titleTextColor="#FFFFFF"
+        app:showAsAction="always" />
+    <!-- 其他菜单项 -->
+</menu>

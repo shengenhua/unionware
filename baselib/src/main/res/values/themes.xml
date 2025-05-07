@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Unionware" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/mesAppColor</item>
+        <item name="colorPrimaryDark">@color/mesAppColor</item>
+        <item name="colorAccent">@color/mesAppColor</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="UnionwareRed" parent="Unionware">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#E53935</item>
+        <item name="colorPrimaryDark">#E53935</item>
+        <item name="colorAccent">#E53935</item>
+    </style>
+
+    <style name="UnionwareAzure" parent="Unionware">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#00BBFF</item>
+        <item name="colorPrimaryDark">#00BBFF</item>
+        <item name="colorAccent">#00BBFF</item>
+    </style>
+
+    <style name="UnionwareGreen" parent="Unionware">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#308033</item>
+        <item name="colorPrimaryDark">#308033</item>
+        <item name="colorAccent">#308033</item>
+    </style>
+
+    <style name="Unionware.Launcher" parent="Unionware">
+        <item name="android:windowFullscreen">false</item>
+    </style>
+
+    <style name="Unionware.Launcher.Welcome" parent="Unionware">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@mipmap/ic_welcome_bg</item>
+    </style>
+
+    <style name="Unionware.Launcher.Main" parent="Unionware">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+    <!-- ToolBar菜单样式 -->
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
+        <item name="actionMenuTextColor">?attr/colorPrimary</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="EMSToolbar" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:navigationIcon">@drawable/arrow_back_ios</item>
+        <item name="android:homeAsUpIndicator">@drawable/arrow_back_ios</item>
+        <item name="android:titleTextAppearance">@style/ToolbarTitle</item>
+        <item name="android:actionMenuTextAppearance">@style/AppThemeToolbar</item>
+        <item name="android:actionMenuTextColor">@color/white</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ToolbarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/sp_16</item> <!-- 设置文字大小为 20sp -->
+        <!-- 其他样式设置，例如颜色、字体等 -->
+    </style>
+
+    <style name="AppThemeToolbar" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="colorPrimaryDark">@color/lightThemeColor</item>
+        <!--        控件在选中状态或获取焦点状态下使用这个颜色-->
+        <item name="colorAccent">?attr/colorPrimary</item>
+        <!--        默认工具样式-->
+        <item name="toolbarStyle">@style/NoSpaceActionBarTheme</item>
+
+    </style>
+
+    <style name="NoSpaceActionBarTheme" parent="Base.Widget.AppCompat.Toolbar">
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+    </style>
+
+    <style name="RoundImageStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/dp_10</item>
+    </style>
+</resources>

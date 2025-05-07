@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="unionware.base.model.bean.PropertyBean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="afterDescendants"
+        android:layout_marginHorizontal="@dimen/dp_2"
+        android:layout_marginVertical="@dimen/dp_1"
+        android:paddingHorizontal="@dimen/dp_5"
+        android:paddingVertical="@dimen/dp_2">
+
+
+        <TextView
+            android:id="@+id/tvScanTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{item.name}"
+            android:textColor="#515151"
+            android:textSize="@dimen/vv_title_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/view1"
+            app:layout_constraintHorizontal_weight="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="2dp"
+            android:layout_height="0dp"
+            android:background="#DCDCDC"
+            android:paddingVertical="@dimen/dp_2"
+            app:layout_constraintBottom_toBottomOf="@+id/etScanInput"
+            app:layout_constraintEnd_toStartOf="@+id/etScanInput"
+            app:layout_constraintStart_toEndOf="@+id/tvScanTitle"
+            app:layout_constraintTop_toTopOf="@+id/etScanInput" />
+        <!--    android:textSize="@dimen/sp_14"-->
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etScanInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_enabled_bg"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:inputType="textMultiLine"
+            android:paddingVertical="@dimen/dp_5"
+            android:paddingStart="@dimen/dp_8"
+            android:paddingEnd="@dimen/dp_35"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:text="@={item.value}"
+            android:textColor="@color/black"
+            android:visibility="invisible"
+            android:textSize="@dimen/vv_item_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="0.6"
+            app:layout_constraintStart_toEndOf="@+id/view1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvValueName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dp_5"
+            android:paddingStart="@dimen/dp_8"
+            android:paddingEnd="@dimen/dp_35"
+            android:singleLine="true"
+            android:hint="@{item.name}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/vv_item_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="0.6"
+            app:layout_constraintStart_toEndOf="@+id/view1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:paddingVertical="@dimen/dp_5"
+            android:src="@drawable/input_delete_ic"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/etScanInput"
+            app:layout_constraintEnd_toStartOf="@+id/ivQuery"
+            app:layout_constraintTop_toTopOf="@+id/etScanInput" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivQuery"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:src="@drawable/ic_query"
+            app:layout_constraintBottom_toBottomOf="@+id/etScanInput"
+            app:layout_constraintEnd_toStartOf="@+id/tvScanDefault"
+            app:layout_constraintTop_toTopOf="@+id/etScanInput" />
+
+        <ImageView
+            android:id="@+id/tvScanDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:paddingStart="@dimen/dp_5"
+            android:paddingEnd="@dimen/dp_5"
+            android:src="@drawable/dw_defalut"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/etScanInput"
+            app:layout_constraintEnd_toStartOf="@+id/ivScanLock"
+            app:layout_constraintTop_toTopOf="@+id/etScanInput" />
+
+        <ImageView
+            android:id="@+id/ivScanLock"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingStart="@dimen/dp_6"
+            android:paddingEnd="@dimen/dp_6"
+            android:src="@drawable/dw_lock"
+            android:text="锁定"
+            app:layout_constraintBottom_toBottomOf="@+id/etScanInput"
+            app:layout_constraintEnd_toStartOf="@+id/ivAdd"
+            app:layout_constraintTop_toTopOf="@+id/etScanInput" />
+
+        <ImageView
+            android:id="@+id/ivAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingStart="@dimen/dp_6"
+            android:paddingEnd="@dimen/dp_8"
+            android:src="@drawable/round_add_24"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/etScanInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/etScanInput" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="unionware.base.model.bean.barcode.BarCodeBean" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_2"
+        android:layout_marginVertical="@dimen/dp_4">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/dp_3"
+            app:cardElevation="@dimen/dp_4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/clFeature"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <unionware.base.ui.ClearAppEditView
+                android:id="@+id/etBarCodeInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_search_white"
+                android:hint="请扫描条码"
+                android:nextFocusDown="@id/etBarCodeInput"
+                android:paddingVertical="@dimen/dp_10"
+                android:paddingStart="@dimen/dp_50"
+                android:paddingEnd="@dimen/dp_10"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:tag="FBarCodeScan"
+                android:textColor="@color/color_333"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/etQty"
+                app:layout_constraintHorizontal_weight="0.8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivCommonScan"
+                android:layout_width="@dimen/dp_35"
+                android:layout_height="0dp"
+                android:paddingStart="@dimen/dp_10"
+                android:paddingEnd="0dp"
+                android:src="@drawable/dw_qr_code_scanner"
+                android:tag="FScanBarCode"
+                android:tint="?attr/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="@+id/etBarCodeInput"
+                app:layout_constraintStart_toStartOf="@+id/etBarCodeInput"
+                app:layout_constraintTop_toTopOf="@id/etBarCodeInput"
+                tools:ignore="UseAppTint" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etQty"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="@dimen/dp_5"
+                android:background="@drawable/bg_search_white"
+                android:gravity="center"
+                android:hint="数量"
+                android:inputType="number"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:tag="FBarQtyScan"
+                android:textColor="@color/color_333"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="0.2"
+                app:layout_constraintStart_toEndOf="@+id/etBarCodeInput"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/clFeature"
+            android:layout_width="@dimen/feature_size"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:paddingHorizontal="@dimen/dp_1"
+            app:cardCornerRadius="@dimen/dp_3"
+            app:cardElevation="@dimen/dp_4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvVerify"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/colorPrimary"
+                android:gravity="center"
+                android:padding="@dimen/dp_1"
+                android:tag="INVOKE_BARCODECONFIRM"
+                android:text="√"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

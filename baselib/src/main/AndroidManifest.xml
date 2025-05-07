@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Android 13版本适配，细化存储权限 -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:requestLegacyExternalStorage="true"
+        android:theme="@style/Unionware.Launcher">
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="behind"
+            android:stateNotNeeded="true"
+            tools:ignore="DiscouragedApi"
+            tools:replace="android:screenOrientation" />
+
+        <provider
+            android:name=".app.UnionwareFileProvider"
+            android:authorities="${applicationId}.unionware.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_unionware_paths" />
+        </provider>
+        <activity
+            android:name="com.unionware.basicui.setting.bluetooth.BluetoothActivity"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false">
+            <meta-data
+                android:name="com.unionware.basicui.app.AppInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="com.unionware.basicui.app.BasicAppProvider"
+                android:value="androidx.startup" />
+        </provider>
+
+        <activity
+            android:name="com.unionware.basicui.main.home.HomeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/Unionware.Launcher.Main" />
+        <activity android:name="com.unionware.basicui.setting.SettingActivity" />
+        <activity android:name="com.unionware.basicui.setting.QRActivity" />
+        <activity android:name="com.unionware.basicui.setting.ConfigNetActivity" />
+        <activity android:name="com.unionware.basicui.setting.acth.AuthConfigActivity" /> <!-- <activity android:name="com.unionware.basicui.login.WelcomeActivity" /> -->
+        <activity
+            android:name="com.unionware.basicui.login.login.LoginActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name="com.unionware.virtual.view.basics.BasicVirProfileActivity" />
+        <activity android:name="com.unionware.basicui.base.activity.BasicProfileActivity" />
+        <activity android:name="com.unionware.basicui.base.activity.BasicOtherActivity" />
+        <activity android:name="com.unionware.basicui.setting.AboutUsActivity" />
+        <activity android:name="com.unionware.basicui.setting.apptheme.UnionwareThemeActivity" />
+    </application>
+
+</manifest>

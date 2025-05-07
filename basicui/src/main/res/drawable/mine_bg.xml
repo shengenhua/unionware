@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 左上角半圆形渐变（优化定位） -->
+    <item
+        android:left="-240dp"
+        android:top="-100dp">
+        <shape android:shape="oval">
+            <size
+                android:width="?attr/layout_constraintWidth"
+                android:height="?attr/layout_constraintHeight" />
+            <gradient
+                android:centerX="0.5"
+                android:centerY="0.5"
+                android:gradientRadius="50%p"
+                android:startColor="@color/mesAppColor"
+                android:type="radial" />
+        </shape>
+    </item>
+
+    <!-- 右侧半圆形渐变（优化定位） -->
+    <item
+        android:right="-500dp"
+        android:top="-50dp">
+        <shape android:shape="oval">
+            <size
+                android:width="?attr/layout_constraintWidth"
+                android:height="?attr/layout_constraintHeight" />
+            <gradient
+                android:centerX="0.5"
+                android:centerY="0.5"
+                android:gradientRadius="30%p"
+                android:startColor="@color/mesAppColor"
+                android:type="radial" />
+        </shape>
+    </item>
+</layer-list>

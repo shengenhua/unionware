@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_platform">应用</string>
+    <string name="home_person">我的</string>
+    <string name="server_address_is_null">请先配置服务器地址！</string>
+    <string name="login_ac_set_tips">请选择账套</string>
+    <string name="login_input_user_tips">请输入账号</string>
+    <string name="login_input_pwd_tips">请输入密码</string>
+</resources>

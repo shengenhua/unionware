@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:focusableInTouchMode="true"
+            app:layout_constraintBottom_toTopOf="@+id/btn_scan_confirm"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <unionware.base.ui.DynamicHeightViewPager
+                    android:id="@+id/vp_summary_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_scan_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dp_15"
+                    app:layout_goneMarginBottom="@dimen/dp_500"
+                    app:layout_constraintTop_toBottomOf="@+id/vp_summary_list" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_show_list"
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="@dimen/dp_10"
+                    android:background="@drawable/bg_show_list"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_scan_list" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_scan_edit"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/dp_5"
+            android:layout_marginStart="@dimen/dp_15"
+            android:background="@drawable/btn_common"
+            android:gravity="center"
+            android:text="逐条编辑"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_scan_confirm"
+            app:layout_constraintEnd_toStartOf="@+id/btn_scan_close"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_scan_confirm"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_scan_close"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/btn_common"
+            android:gravity="center"
+            android:text="关闭容器"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_scan_confirm"
+            app:layout_constraintEnd_toStartOf="@+id/btn_scan_delete"
+            app:layout_constraintStart_toEndOf="@+id/btn_scan_edit"
+            app:layout_constraintTop_toTopOf="@+id/btn_scan_confirm"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_goneMarginStart="@dimen/dp_15" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_scan_delete"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/dp_5"
+            android:background="@drawable/btn_common"
+            android:gravity="center"
+            android:text="删除明细"
+
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_scan_confirm"
+            app:layout_constraintEnd_toStartOf="@+id/btn_scan_confirm"
+            app:layout_constraintStart_toEndOf="@+id/btn_scan_close"
+            app:layout_constraintTop_toTopOf="@+id/btn_scan_confirm"
+            app:layout_goneMarginStart="@dimen/dp_15" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_scan_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:background="@drawable/btn_common"
+            android:gravity="center"
+            android:minHeight="@dimen/dp_30"
+            android:text="确定录入"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_scan_delete"
+            app:layout_goneMarginEnd="@dimen/dp_15"
+            android:paddingVertical="@dimen/dp_6"
+            app:layout_goneMarginStart="@dimen/dp_15" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

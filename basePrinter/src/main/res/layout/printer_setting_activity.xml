@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_print_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/callback_white_icon">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tb_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="@dimen/dp_15"
+                android:text="打印机设置"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_14" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tb_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:gravity="center"
+                android:padding="@dimen/dp_15"
+                android:text="全部删除"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                android:visibility="gone" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:id="@+id/ll_print_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_10"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <TextView
+                android:id="@+id/server_printer_type"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="打印机型号"
+                android:textSize="@dimen/sp_18" />
+
+            <Spinner
+                android:id="@+id/spn_printer_type"
+                style="@style/spinner_style_normal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_35"
+                android:layout_marginStart="@dimen/dp_10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_connection_method"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_10"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/ll_print_model">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="连接方式"
+                android:textSize="@dimen/sp_18" />
+
+            <Spinner
+                android:id="@+id/spn_connection_method"
+                style="@style/spinner_style_normal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_35"
+                android:layout_marginStart="@dimen/dp_10" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_print"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_10"
+            app:layout_constraintTop_toBottomOf="@+id/ll_connection_method">
+
+            <TextView
+                android:id="@+id/server_ip_scan"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="打印机"
+                android:textSize="@dimen/sp_18" />
+
+            <EditText
+                android:id="@+id/server_ip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:background="@drawable/common_input_border"
+                android:hint="打印机IP及端口"
+                android:paddingHorizontal="@dimen/dp_5"
+                android:paddingVertical="@dimen/dp_10"
+                android:textSize="@dimen/sp_16" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_print_direction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_10"
+            app:layout_constraintTop_toBottomOf="@+id/ll_print">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="打印选择角度"
+                android:textSize="@dimen/sp_18" />
+
+            <Spinner
+                android:id="@+id/spn_direction_type"
+                style="@style/spinner_style_normal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_35"
+                android:layout_marginStart="@dimen/dp_10" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_print_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp_10"
+            app:layout_constraintTop_toBottomOf="@+id/ll_print_direction">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="打印方式"
+                android:textSize="@dimen/sp_18" />
+
+            <Spinner
+                android:id="@+id/spn_print_type"
+                style="@style/spinner_style_normal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_35"
+                android:layout_marginStart="@dimen/dp_10" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/ll_print_type">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_test"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_40"
+                android:layout_margin="@dimen/dp_10"
+                android:layout_weight="1"
+                android:background="@drawable/btn_common"
+                android:gravity="center"
+                android:text="测试"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_commit"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_40"
+                android:layout_margin="@dimen/dp_10"
+                android:layout_weight="1"
+                android:background="@drawable/btn_common"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,8 @@
+<!-- res/drawable/line_drawable.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFFFFF" />
+    <stroke
+        android:width="@dimen/dp_1"
+        android:height="@dimen/dp_1"
+        android:color="#000000" />
+</shape>

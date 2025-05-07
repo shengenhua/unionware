@@ -1,0 +1,22 @@
+android {
+    publishing {
+        // 添加此配置以包含传递依赖
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                // 添加以下配置确保包含所有依赖
+                pom.withXml {
+                    def dependenciesNode = asNode().appendNode("dependencies")
+                    configurations.api.allDependencies.each {
+                        if (it.group != null && (it.name != null || "unspecified" != it.name) && it.version != null) {
+                            def dependencyNode = dependenciesNode.appendNode("dependency")
+                            dependencyNode.appendNode("groupId", it.group)
+                            dependencyNode.appendNode("artifactId", it.name)
+                            dependencyNode.appendNode("version", it.version)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
