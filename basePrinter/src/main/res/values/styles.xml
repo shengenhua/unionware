@@ -1,7 +1,0 @@
-<resources>
-    <style name="spinner_style_normal">
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:background">@drawable/bg_spinner_normal</item>
-        <item name="android:textColor">#FF0F0F0F</item>
-    </style>
-</resources>

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="c_title_size">@dimen/sp_13</dimen>
-    <dimen name="c_item_size">@dimen/sp_14</dimen>
-</resources>
