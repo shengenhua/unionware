@@ -23,12 +23,6 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
-        javaCompileOptions {
-            annotationProcessorOptions {
-                // arguments.putAll(mapOf("AROUTER_MODULE_NAME" to "baselib"))
-            }
-        }
-
     }
     sourceSets {
         this.stream().filter { it.name == "main" }.forEach {
@@ -129,7 +123,7 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 groupId = "unionware.base"
                 artifactId = "baselib"
-                version = "1.0.0"
+                version = "1.0.1"
                 from(components["release"])
                 // 添加以下配置确保包含所有依赖
                 pom.withXml {
