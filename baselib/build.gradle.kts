@@ -117,6 +117,23 @@ dependencies {
     implementation(libs.arouter.api)
     kapt(libs.arouter.compiler)
 }
+
+tasks.withType<GenerateMavenPom>().all {
+    doLast {
+        val file =
+            File("$buildDir/publications/release/pom-default.xml")//maven值自己看看对应build/publications/下是什么
+        var text = file.readText()
+        val regex =
+            "(?s)(<dependencyManagement>.+?<dependencies>)(.+?)(</dependencies>.+?</dependencyManagement>)".toRegex()
+        val matcher = regex.find(text)
+        if (matcher != null) {
+            text = regex.replaceFirst(text, "")
+            val firstDeps = matcher.groups[2]!!.value
+            text = regex.replaceFirst(text, "$1$2$firstDeps$3")
+        }
+        file.writeText(text)
+    }
+}
 afterEvaluate {
     publishing {
         publications {
@@ -125,8 +142,16 @@ afterEvaluate {
                 artifactId = "baselib"
                 version = "1.0.1"
                 from(components["release"])
+                versionMapping {
+                    usage("java-api") {
+                        fromResolutionResult()
+                    }
+                    usage("java-runtime") {
+                        fromResolutionResult()
+                    }
+                }
                 // 添加以下配置确保包含所有依赖
-                pom.withXml {
+                /*pom.withXml {
                     val dependenciesNode = asNode().appendNode("dependencies")
                     configurations.kapt.configure {
                         this.allDependencies.onEach {
@@ -148,15 +173,15 @@ afterEvaluate {
                             }
                         }
                     }
-                    /*configurations.api.allDependencies.each {
+                    *//*configurations.api.allDependencies.each {
                         if (it.group != null && (it.name != null || "unspecified" != it.name) && it.version != null) {
                             def dependencyNode = dependenciesNode.appendNode("dependency")
                             dependencyNode.appendNode("groupId", it.group)
                             dependencyNode.appendNode("artifactId", it.name)
                             dependencyNode.appendNode("version", it.version)
                         }
-                    }*/
-                }
+                    }*//*
+                }*/
             }
         }
     }

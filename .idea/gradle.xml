@@ -10,14 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/EMES" />
-            <option value="$PROJECT_DIR$/MES" />
-            <option value="$PROJECT_DIR$/MES_Process" />
-            <option value="$PROJECT_DIR$/ONCE" />
-            <option value="$PROJECT_DIR$/QUERY" />
-            <option value="$PROJECT_DIR$/WMS" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/basePrinter" />
             <option value="$PROJECT_DIR$/baselib" />
           </set>
         </option>
