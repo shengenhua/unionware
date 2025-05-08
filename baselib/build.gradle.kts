@@ -154,7 +154,7 @@ afterEvaluate {
                     withXml {
                         asNode().appendNode("properties").apply {
                             appendNode("AROUTER_MODULE_NAME", project.name)
-                            appendNode("kapt.includeCompileClasspath", "true")
+//                            appendNode("kapt.includeCompileClasspath", "true")
                         }
                     }
                 }
