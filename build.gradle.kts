@@ -3,7 +3,7 @@ buildscript {
         maven { url = uri("https://jitpack.io") }
     }
     dependencies {
-        classpath("com.github.aasitnikov:fat-aar-android:1.4.2")
+//        classpath("com.github.aasitnikov:fat-aar-android:1.4.2")
     }
 }
 plugins {

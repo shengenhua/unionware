@@ -106,7 +106,7 @@ dependencies {
 
 
 
-    implementation(libs.dagger.hilt.android)
+    api(libs.dagger.hilt.android)
     kapt(libs.dagger.hilt.compiler)
 //    api(libs.dagger.hilt.android)
 //    kapt(libs.dagger.hilt.compiler)
@@ -114,7 +114,7 @@ dependencies {
     api(libs.androidx.room.runtime)
     api(libs.androidx.room.ktx)
     kapt(libs.androidx.room.compiler)
-    implementation(libs.arouter.api)
+    api(libs.arouter.api)
     kapt(libs.arouter.compiler)
 }
 
@@ -150,38 +150,14 @@ afterEvaluate {
                         fromResolutionResult()
                     }
                 }
-                // 添加以下配置确保包含所有依赖
-                /*pom.withXml {
-                    val dependenciesNode = asNode().appendNode("dependencies")
-                    configurations.kapt.configure {
-                        this.allDependencies.onEach {
-                            if (it.group!= null && (it.name!= null || "unspecified"!= it.name) && it.version!= null) {
-                                val dependencyNode = dependenciesNode.appendNode("dependency")
-                                dependencyNode.appendNode("groupId", it.group)
-                                dependencyNode.appendNode("artifactId", it.name)
-                                dependencyNode.appendNode("version", it.version)
-                            }
+                pom {
+                    withXml {
+                        asNode().appendNode("properties").apply {
+                            appendNode("AROUTER_MODULE_NAME", project.name)
+                            appendNode("kapt.includeCompileClasspath", "true")
                         }
                     }
-                    configurations.api.configure {
-                        this.allDependencies.onEach {
-                            if (it.group!= null && (it.name!= null || "unspecified"!= it.name) && it.version!= null) {
-                                val dependencyNode = dependenciesNode.appendNode("dependency")
-                                dependencyNode.appendNode("groupId", it.group)
-                                dependencyNode.appendNode("artifactId", it.name)
-                                dependencyNode.appendNode("version", it.version)
-                            }
-                        }
-                    }
-                    *//*configurations.api.allDependencies.each {
-                        if (it.group != null && (it.name != null || "unspecified" != it.name) && it.version != null) {
-                            def dependencyNode = dependenciesNode.appendNode("dependency")
-                            dependencyNode.appendNode("groupId", it.group)
-                            dependencyNode.appendNode("artifactId", it.name)
-                            dependencyNode.appendNode("version", it.version)
-                        }
-                    }*//*
-                }*/
+                }
             }
         }
     }
