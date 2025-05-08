@@ -106,7 +106,7 @@ dependencies {
 
 
 
-    api(libs.dagger.hilt.android)
+    implementation(libs.dagger.hilt.android)
     kapt(libs.dagger.hilt.compiler)
 //    api(libs.dagger.hilt.android)
 //    kapt(libs.dagger.hilt.compiler)
@@ -114,7 +114,7 @@ dependencies {
     api(libs.androidx.room.runtime)
     api(libs.androidx.room.ktx)
     kapt(libs.androidx.room.compiler)
-    api(libs.arouter.api)
+    implementation(libs.arouter.api)
     kapt(libs.arouter.compiler)
 }
 
