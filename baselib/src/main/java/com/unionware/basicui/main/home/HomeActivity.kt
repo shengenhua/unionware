@@ -10,14 +10,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
-import unionware.base.R
-import unionware.base.databinding.HomeActivtiyBinding
+import com.unionware.basicui.main.menu.HomeFragmentConfig
 import com.unionware.basicui.main.menu.PersonFragment
 import com.unionware.basicui.main.menu.ScanConfigFragment
 import com.unionware.path.RouterPath
 import dagger.hilt.android.AndroidEntryPoint
+import unionware.base.R
 import unionware.base.app.utils.LoadingUtil
 import unionware.base.app.view.base.BaseMvvmViewBindingActivity
+import unionware.base.databinding.HomeActivtiyBinding
 
 
 @AndroidEntryPoint
@@ -29,8 +30,8 @@ class HomeActivity : BaseMvvmViewBindingActivity<HomeActivtiyBinding, HomeViewMo
     var isLogin: Boolean = false
 
     private var mExitTime: Long = 0
-    private var mPlatformFragment: Fragment? = null
-    private var mPersonFragment: Fragment? = null
+    private var platformFragment: Fragment? = null
+    private var personFragment: Fragment? = null
 
     override fun initViewObservable() = Unit
     override fun onBindLayout(): Int = R.layout.home_activtiy
@@ -70,6 +71,16 @@ class HomeActivity : BaseMvvmViewBindingActivity<HomeActivtiyBinding, HomeViewMo
     }
 
     override fun initData() {
+        if (HomeFragmentConfig.getFirstFragment() == null) {
+            HomeFragmentConfig.setFirstFragment(ScanConfigFragment().apply {
+                this.arguments = bundleOf(
+                    "isLogin" to isLogin
+                )
+            })
+        }
+        if (HomeFragmentConfig.getMeFragment() == null) {
+            HomeFragmentConfig.setMeFragment(PersonFragment())
+        }
     }
 
     private fun initBottomNavigation() {
@@ -93,38 +104,34 @@ class HomeActivity : BaseMvvmViewBindingActivity<HomeActivtiyBinding, HomeViewMo
         hideFragments(transaction)
         when (position) {
             0 -> {
-                mPlatformFragment?.let {
+                platformFragment?.let {
                     transaction.show(it)
-                } ?: ScanConfigFragment().apply {
-                    this.arguments = bundleOf(
-                        "isLogin" to isLogin
-                    )
-                }.let {
+                } ?: HomeFragmentConfig.getFirstFragment()?.let {
                     if (supportFragmentManager.fragments.isNotEmpty()) {
                         supportFragmentManager.fragments.firstOrNull { f ->
-                            f is ScanConfigFragment
+                            f::class.java == it::class.java
                         }?.apply {
                             transaction.remove(this)
                         }
                     }
-                    mPlatformFragment = it
+                    platformFragment = it
                     transaction.add(R.id.mContentFL, it, RouterPath.Main.PATH_MENU_HOME)
                 }
             }
 
 
             1 -> {
-                mPersonFragment?.let {
+                personFragment?.let {
                     transaction.show(it)
-                } ?: PersonFragment().let {
+                } ?: HomeFragmentConfig.getMeFragment()?.let {
                     if (supportFragmentManager.fragments.isNotEmpty()) {
                         supportFragmentManager.fragments.firstOrNull { f ->
-                            f is PersonFragment
+                            f::class.java == it::class.java
                         }?.apply {
                             transaction.remove(this)
                         }
                     }
-                    mPersonFragment = it
+                    personFragment = it
                     transaction.add(R.id.mContentFL, it, RouterPath.Person.PATH_PERSON_HOME)
                 }
             }
@@ -135,8 +142,8 @@ class HomeActivity : BaseMvvmViewBindingActivity<HomeActivtiyBinding, HomeViewMo
 
     //隐藏所有的Fragment
     private fun hideFragments(transaction: FragmentTransaction) {
-        mPlatformFragment?.let { transaction.hide(it) }
-        mPersonFragment?.let { transaction.hide(it) }
+        platformFragment?.let { transaction.hide(it) }
+        personFragment?.let { transaction.hide(it) }
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {

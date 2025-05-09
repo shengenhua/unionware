@@ -12,22 +12,19 @@ import com.chad.library.adapter4.BaseQuickAdapter;
 import com.chad.library.adapter4.QuickAdapterHelper;
 import com.lxj.xpopup.XPopup;
 import com.tencent.mmkv.MMKV;
-import unionware.base.R;
 import com.unionware.basicui.app.BasicAppProvider;
-import unionware.base.databinding.SettingActivityBinding;
-import com.unionware.basicui.setting.acth.AuthConfigActivity;
 import com.unionware.basicui.setting.adapter.SettingAdapter;
-import com.unionware.basicui.setting.apptheme.UnionwareThemeActivity;
 import com.unionware.basicui.setting.bean.SettingBean;
-import com.unionware.path.RouterPath;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
+import unionware.base.R;
 import unionware.base.app.utils.LoadingUtil;
 import unionware.base.app.utils.ToastUtil;
 import unionware.base.app.view.base.viewbinding.BaseBindActivity;
+import unionware.base.databinding.SettingActivityBinding;
 import unionware.base.route.URouter;
 import unionware.base.ui.UpgradeDialog;
 import unionware.base.util.AppUpdateUtil;
@@ -57,6 +54,7 @@ public class SettingActivity extends BaseBindActivity<SettingActivityBinding> {
         getLifecycle().addObserver(viewModel);
         viewModel.getMUIChangeLiveData().getShowToastViewEvent().observe(this, ToastUtil::showToastCenter);
     }
+
     @Override
     public void initListener() {
         viewModel.getAppVersionLiveData().observe(this, appLastest -> {
@@ -127,7 +125,7 @@ public class SettingActivity extends BaseBindActivity<SettingActivityBinding> {
     }
 
     protected List<SettingBean> getAdapterMenu() {
-        List<SettingBean> list = new ArrayList<>();
+       /* List<SettingBean> list = new ArrayList<>();
         list.add(new SettingBean("禁用软键盘", "hideKeyboard", kv.encode("hideKeyboard", false)));
         list.add(new SettingBean("打印设置", RouterPath.Print.PATH_PRINT_SET_MAIN));
 //        list.add(new SettingBean("打印页签设置", RouterPath.Print.PATH_PRINT_SET_MAIN));
@@ -142,12 +140,15 @@ public class SettingActivity extends BaseBindActivity<SettingActivityBinding> {
         list.add(new SettingBean("检查更新", () -> {
             viewModel.getAppLastest();
         }));
+*/
+        SettingConfig.addSettingBeans(new SettingBean("检查更新", () -> {
+            viewModel.getAppLastest();
+        }));
 
-        return list;
+        return SettingConfig.getSettingBeans();
     }
 
     protected List<SettingBean> getBottomMenu() {
-        List<SettingBean> list = new ArrayList<>();
         SettingBean loginOut = new SettingBean("退出登陆", () -> {
             viewModel.loginOut();
             MMKV kv = MMKV.mmkvWithID("app");
@@ -160,8 +161,9 @@ public class SettingActivity extends BaseBindActivity<SettingActivityBinding> {
         });
         loginOut.setTextColor(getResources().getColor(unionware.base.R.color.red, this.getTheme()));
         loginOut.setDrawable(0);
-        list.add(loginOut);
-        return list;
+        
+        SettingConfig.addBottomSettingBeans(loginOut);
+        return SettingConfig.getBottomSettingBeans();
     }
 
     protected RecyclerView.Adapter<?> getSettingAdapter() {

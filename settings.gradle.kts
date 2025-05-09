@@ -35,16 +35,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "轻优联MES"
-include(":app")
+rootProject.name = "优联轻MES"
 include(":baselib")
-//include(":basicui")
-//include(":MES")
-//include(":ONCE")
-//include(":WMS")
-//include(":basePrinter")
-//include(":QUERY")
-//include(":QUERY")
-//include(":EMES")
-//include(":MES_Process")
-//include(":unionwareLib")

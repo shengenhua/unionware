@@ -54,25 +54,29 @@ class UnionwareThemeActivity : BaseBindActivity<ActivityAppThemeBinding>() {
 
     override fun initData() {
         val themeList = mutableListOf<UnionwareTheme>()
-        themeList.add(UnionwareTheme(-1, "默认主题",
-            unionware.base.R.color.mesAppColor))
         themeList.add(
             UnionwareTheme(
-                unionware.base.R.style.UnionwareRed,
+                -1, "默认主题",
+                "#3370FF".toColorInt()
+            )
+        )
+        themeList.add(
+            UnionwareTheme(
+                R.style.UnionwareRed,
                 "红色主题",
                 "#E53935".toColorInt()
             )
         )
         themeList.add(
             UnionwareTheme(
-                unionware.base.R.style.UnionwareAzure,
+                R.style.UnionwareAzure,
                 "天青主题",
                 "#00BBFF".toColorInt()
             )
         )
         themeList.add(
             UnionwareTheme(
-                unionware.base.R.style.UnionwareGreen,
+                R.style.UnionwareGreen,
                 "绿色主题",
                 "#308033".toColorInt()
             )

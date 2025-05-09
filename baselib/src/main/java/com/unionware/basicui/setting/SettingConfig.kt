@@ -1,0 +1,61 @@
+package com.unionware.basicui.setting
+
+import com.tencent.mmkv.MMKV
+import com.unionware.basicui.setting.acth.AuthConfigActivity
+import com.unionware.basicui.setting.apptheme.UnionwareThemeActivity
+import com.unionware.basicui.setting.bean.SettingBean
+import com.unionware.path.RouterPath
+import unionware.base.app.utils.ToastUtil.showToast
+
+/**
+ * Author: sheng
+ * Date:2025/5/9
+ */
+class SettingConfig {
+
+    companion object {
+        private val settingBeans: MutableList<SettingBean> = ArrayList()
+        private val bottomSettingBeans: MutableList<SettingBean> = ArrayList()
+
+        init {
+            settingBeans.add(
+                SettingBean(
+                    "禁用软键盘",
+                    "hideKeyboard",
+                    MMKV.mmkvWithID("app").encode("hideKeyboard", false)
+                )
+            )
+            settingBeans.add(SettingBean("打印设置", RouterPath.Print.PATH_PRINT_SET_MAIN))
+            settingBeans.add(SettingBean("清除缓存") {
+                showToast("清除缓存成功")
+            })
+            settingBeans.add(SettingBean("主题", UnionwareThemeActivity::class.java))
+            settingBeans.add(SettingBean("关于我们", AboutUsActivity::class.java))
+            settingBeans.add(SettingBean("设备授权", AuthConfigActivity::class.java))
+        }
+
+        @JvmStatic
+        fun getSettingBeans(): MutableList<SettingBean> {
+            return settingBeans
+        }
+
+        @JvmStatic
+        fun addSettingBeans(vararg beans: SettingBean) {
+            beans.forEach {
+                settingBeans.add(it)
+            }
+        }
+
+        @JvmStatic
+        fun getBottomSettingBeans(): MutableList<SettingBean> {
+            return bottomSettingBeans
+        }
+
+        @JvmStatic
+        fun addBottomSettingBeans(vararg beans: SettingBean) {
+            beans.forEach {
+                bottomSettingBeans.add(it)
+            }
+        }
+    }
+}
