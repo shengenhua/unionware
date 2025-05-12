@@ -42,7 +42,19 @@ class SettingConfig {
         @JvmStatic
         fun addSettingBeans(vararg beans: SettingBean) {
             beans.forEach {
-                settingBeans.add(it)
+                val oldBean = settingBeans.firstOrNull { bean -> bean.name == it.name }
+                if (oldBean != null) {
+                    oldBean.apply {
+                        it.key = this.key
+                        it.switch = this.switch
+                        it.path = this.path
+                        it.uPath = this.uPath
+                        it.cls = this.cls
+                        it.method = this.method
+                    }
+                } else {
+                    settingBeans.add(it)
+                }
             }
         }
 
@@ -54,8 +66,23 @@ class SettingConfig {
         @JvmStatic
         fun addBottomSettingBeans(vararg beans: SettingBean) {
             beans.forEach {
-                bottomSettingBeans.add(it)
+                val oldBean = bottomSettingBeans.firstOrNull { bean -> bean.name == it.name }
+                if (oldBean != null) {
+                    oldBean.apply {
+                        it.key = this.key
+                        it.switch = this.switch
+                        it.path = this.path
+                        it.uPath = this.uPath
+                        it.cls = this.cls
+                        it.method = this.method
+                    }
+                } else {
+                    bottomSettingBeans.add(it)
+                }
             }
+            /*beans.forEach {
+                bottomSettingBeans.add(it)
+            }*/
         }
     }
 }

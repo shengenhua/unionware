@@ -54,6 +54,13 @@ class HomeActivity : BaseMvvmViewBindingActivity<HomeActivtiyBinding, HomeViewMo
         initBottomNavigation()
         LoadingUtil.init(this)
 
+        HomeFragmentConfig.setFirstFragment(ScanConfigFragment().apply {
+            this.arguments = bundleOf(
+                "isLogin" to isLogin
+            )
+        })
+        HomeFragmentConfig.setMeFragment(PersonFragment())
+
         mViewModel.mLiveData.observe(this) {
             switchFragment(it)
             binding?.mBottomNavigationView?.selectedItemId.apply {
@@ -71,7 +78,7 @@ class HomeActivity : BaseMvvmViewBindingActivity<HomeActivtiyBinding, HomeViewMo
     }
 
     override fun initData() {
-        if (HomeFragmentConfig.getFirstFragment() == null) {
+        /*if (HomeFragmentConfig.getFirstFragment() == null) {
             HomeFragmentConfig.setFirstFragment(ScanConfigFragment().apply {
                 this.arguments = bundleOf(
                     "isLogin" to isLogin
@@ -80,7 +87,7 @@ class HomeActivity : BaseMvvmViewBindingActivity<HomeActivtiyBinding, HomeViewMo
         }
         if (HomeFragmentConfig.getMeFragment() == null) {
             HomeFragmentConfig.setMeFragment(PersonFragment())
-        }
+        }*/
     }
 
     private fun initBottomNavigation() {
