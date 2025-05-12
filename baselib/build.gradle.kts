@@ -138,9 +138,9 @@ afterEvaluate {
     publishing {
         publications {
             create<MavenPublication>("release") {
-                groupId = "unionware.base"
-                artifactId = "baselib"
-                version = "1.0.1"
+                groupId = "com.gitee.Sheng_enhua"
+                artifactId = "unionware"
+                version = "1.0.13"
                 from(components["release"])
                 versionMapping {
                     usage("java-api") {
