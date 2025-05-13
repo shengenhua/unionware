@@ -59,13 +59,13 @@ open class VirtualViewModel @Inject constructor() : BaseViewModel() {
         /**
          * 最新的 View 虚拟视图
          */
-        internal var viewLiveData: MutableLiveData<List<PropertyBean>> =
+        var viewLiveData: MutableLiveData<List<PropertyBean>> =
             MutableLiveData<List<PropertyBean>>()
 
         /**
          * 最新的 View 虚拟视图 的数据
          */
-        internal var dataLiveData: SingleLiveEvent<AnalysisResp?> =
+        var dataLiveData: SingleLiveEvent<AnalysisResp?> =
             SingleLiveEvent()
 
         /**
@@ -77,7 +77,7 @@ open class VirtualViewModel @Inject constructor() : BaseViewModel() {
         /**
          * 关闭当前的 View 虚拟视图
          */
-        internal var closeTaskLiveData: MutableLiveData<AnalysisInfoResp> =
+        var closeTaskLiveData: MutableLiveData<AnalysisInfoResp> =
             MutableLiveData<AnalysisInfoResp>()
 
         init {
@@ -132,7 +132,8 @@ open class VirtualViewModel @Inject constructor() : BaseViewModel() {
      * 查询是否存在已经创建的虚拟视图
      */
     fun queryHasView(scene: String, name: String, filters: FiltersReq) {
-        NetHelper.request(basicApi?.queryToMapString(scene, name, filters),
+        NetHelper.request(
+            basicApi?.queryToMapString(scene, name, filters),
             lifecycle,
             object : ICallback<CommonListDataResp<Map<String, String>>?> {
                 override fun onSuccess(data: CommonListDataResp<Map<String, String>>?) {
@@ -208,7 +209,8 @@ open class VirtualViewModel @Inject constructor() : BaseViewModel() {
      */
     fun createViewGetData(viewReq: ViewReq) {
         postShowTransLoadingViewEvent(true)
-        NetHelper.request(viewApi?.createViewGetData(viewReq),
+        NetHelper.request(
+            viewApi?.createViewGetData(viewReq),
             lifecycle,
             object :
                 ICallback<ListDataViewResp<AnalysisResp, PropertyBean>?> {
@@ -281,11 +283,12 @@ open class VirtualViewModel @Inject constructor() : BaseViewModel() {
      * 获取作业视图数据模型  数据
      */
     fun getVirtualViewData() {
-        NetHelper.request(viewApi?.getSimpleModel(
-            ViewReq(
-                virtualLiveEvent.pageIdLiveData.value
-            )
-        ),
+        NetHelper.request(
+            viewApi?.getSimpleModel(
+                ViewReq(
+                    virtualLiveEvent.pageIdLiveData.value
+                )
+            ),
             lifecycle,
             object : ICallback<AnalysisResp?> {
                 override fun onSuccess(data: AnalysisResp?) {
