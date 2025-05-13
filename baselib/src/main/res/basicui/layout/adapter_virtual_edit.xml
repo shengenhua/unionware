@@ -75,6 +75,7 @@
             android:id="@+id/tvValueName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/edit_enabled_bg"
             android:paddingVertical="@dimen/dp_5"
             android:paddingStart="@dimen/dp_8"
             android:paddingEnd="@dimen/dp_35"

@@ -108,6 +108,9 @@ class VirEditItemListener(private val isLockShow: Boolean = false) :
             }
             tvValueNameUpdate(item)
             tvValueName.setOnClickListener {
+                if(!it.isEnabled){
+                    return@setOnClickListener
+                }
                 tvValueName.visibility = View.INVISIBLE
                 etScanInput.visibility = View.VISIBLE
                 if (etScanInput.requestFocus()) {
@@ -122,6 +125,7 @@ class VirEditItemListener(private val isLockShow: Boolean = false) :
                 clearFocus()
                 (item?.isEnable == true && !item.isLock).apply { // 判断是否可以编辑
                     isEnabled = this
+                    tvValueName.isEnabled = this
                     //不能编辑需要修改的东西
                     ivScanLock.setImageResource(if (!this) R.drawable.dw_lock else R.drawable.dw_unlock)
                     //隐藏删除和查询
