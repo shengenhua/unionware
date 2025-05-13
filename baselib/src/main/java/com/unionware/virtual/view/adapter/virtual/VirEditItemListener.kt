@@ -17,6 +17,7 @@ import unionware.base.databinding.AdapterVirtualEditBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import unionware.base.model.bean.PropertyBean
 import unionware.base.ext.bigDecimalToZeros
@@ -33,15 +34,18 @@ class VirEditItemListener(private val isLockShow: Boolean = false) :
     init {
         MainScope().launch {
             focusFlow.observeForever {
-                getEditBinding(it)?.apply {
-                    this.binding.etScanInput.visibility = View.VISIBLE
-                    this.binding.tvValueName.visibility = View.INVISIBLE
-                    this.binding.etScanInput.apply {
-                        if (requestFocus()) {
-                            (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).showSoftInput(
-                                this,
-                                0
-                            )
+                this.launch {
+                    delay(200)
+                    getEditBinding(it)?.apply {
+                        this.binding.etScanInput.visibility = View.VISIBLE
+                        this.binding.tvValueName.visibility = View.INVISIBLE
+                        this.binding.etScanInput.apply {
+                            if (requestFocus()) {
+                                (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).showSoftInput(
+                                    this,
+                                    0
+                                )
+                            }
                         }
                     }
                 }
@@ -164,7 +168,7 @@ class VirEditItemListener(private val isLockShow: Boolean = false) :
                 }
                 setOnEditorActionListener { _, i, keyEvent ->
                     if (!isFastClick()) {
-                        if (i == EditorInfo.IME_ACTION_SEND || (keyEvent != null && keyEvent.keyCode == KeyEvent.KEYCODE_ENTER)) {
+                        /*if (i == EditorInfo.IME_ACTION_SEND || (keyEvent != null && keyEvent.keyCode == KeyEvent.KEYCODE_ENTER)) {
                             if (keyEvent.action == KeyEvent.ACTION_DOWN) {
                                 onEditorActionChangeListener?.invoke(
                                     this, item, holder.layoutPosition
@@ -173,7 +177,8 @@ class VirEditItemListener(private val isLockShow: Boolean = false) :
                         } else {
                             onEditorActionChangeListener?.invoke(this, item, holder.layoutPosition)
                         }
-                        tvValueNameUpdate(item)
+                        tvValueNameUpdate(item)*/
+                        this.clearFocus()
                     }
                     true
                 }
