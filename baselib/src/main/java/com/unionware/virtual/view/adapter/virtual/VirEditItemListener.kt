@@ -133,13 +133,15 @@ class VirEditItemListener(private val isLockShow: Boolean = false) :
                     }
                     //不能编辑需要修改的东西
                     hint = if (this) item?.name else ""
-                    if (this) {
+                    /*if (this) {
                         tvValueName.visibility = View.VISIBLE
                         etScanInput.visibility = View.INVISIBLE
                     } else {
                         tvValueName.visibility = View.INVISIBLE
                         etScanInput.visibility = View.VISIBLE
-                    }
+                    }*/
+                    tvValueName.visibility = View.VISIBLE
+                    etScanInput.visibility = View.INVISIBLE
                 }
 
                 inputType = when (item?.type) {
