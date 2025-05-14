@@ -127,11 +127,32 @@ interface BasicApi {
      * 通用查询操作
      */
     @POST("UNW.MOM.ServicesStub.OpenService.Invoke.common.kdsvc?action=UnionWare.Basic.Query")
+    fun queryToMMap(
+        @Query("scene") scene: String?,
+        @Query("name") name: String?,
+        @Body filters: FiltersReq?,
+    ): Observable<BaseResponse<CommonListDataResp<MutableMap<String, Any>>?>>?
+
+
+    /**
+     * 通用查询操作
+     */
+    @POST("UNW.MOM.ServicesStub.OpenService.Invoke.common.kdsvc?action=UnionWare.Basic.Query")
     fun queryToMapString(
         @Query("scene") scene: String?,
         @Query("name") name: String?,
         @Body filters: FiltersReq?,
     ): Observable<BaseResponse<CommonListDataResp<Map<String, String>>>>?
+
+    /**
+     * 通用查询操作
+     */
+    @POST("UNW.MOM.ServicesStub.OpenService.Invoke.common.kdsvc?action=UnionWare.Basic.Query")
+    fun queryToMMapStr(
+        @Query("scene") scene: String?,
+        @Query("name") name: String?,
+        @Body filters: FiltersReq?,
+    ): Observable<BaseResponse<CommonListDataResp<MutableMap<String, String>>?>>?
 
     /**
      * 通用查询操作
