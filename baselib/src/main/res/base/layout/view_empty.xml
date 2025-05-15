@@ -23,7 +23,7 @@
         android:gravity="center"
         android:text="呜呼，还没有建立应用呢快去维护吧～"
         android:textColor="@color/gray"
-        android:textSize="@dimen/sp_14"
+        android:textSize="?attr/font14"
         app:layout_constraintEnd_toEndOf="@+id/iv_empty_icon"
         app:layout_constraintStart_toStartOf="@+id/iv_empty_icon"
         app:layout_constraintTop_toBottomOf="@+id/iv_empty_icon" />

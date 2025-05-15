@@ -7,4 +7,4 @@
     android:paddingVertical="@dimen/dp_6"
     android:textAlignment="inherit"
     android:textColor="@color/black"
-    android:textSize="@dimen/sp_16" />
+    android:textSize="?attr/font16" />

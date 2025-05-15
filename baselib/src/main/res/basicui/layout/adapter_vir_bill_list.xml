@@ -32,7 +32,7 @@
                 android:padding="@dimen/dp_5"
                 android:text="删除"
                 android:textColor="@color/white"
-                android:textSize="@dimen/sp_14"
+                android:textSize="?attr/font14"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -49,7 +49,7 @@
                 android:singleLine="true"
                 android:text="@{billData.codeName+`：`}"
                 android:textColor="@color/black"
-                android:textSize="@dimen/sp_18"
+                android:textSize="?attr/font18"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -64,7 +64,7 @@
                 android:paddingBottom="@dimen/dp_8"
                 android:text="@{billData.code}"
                 android:textColor="@color/black"
-                android:textSize="@dimen/sp_18"
+                android:textSize="?attr/font18"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tvBillCodeName"

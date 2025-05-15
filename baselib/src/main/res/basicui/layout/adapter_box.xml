@@ -18,7 +18,7 @@
             android:gravity="center"
             android:padding="@dimen/dp_2"
             android:text="@{value}"
-            android:textSize="@dimen/sp_13"
+            android:textSize="?attr/font13"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -15,7 +15,7 @@
         android:layout_marginStart="@dimen/dp_16"
         android:gravity="center"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/sp_14" />
+        android:textSize="?attr/font14" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tb_submit"
@@ -27,7 +27,7 @@
         android:paddingEnd="@dimen/dp_15"
         android:text="提交"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/sp_14"
+        android:textSize="?attr/font14"
         android:visibility="gone" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -40,7 +40,7 @@
         android:paddingEnd="@dimen/dp_15"
         android:text="关箱"
         android:textColor="@color/white"
-        android:textSize="@dimen/sp_14"
+        android:textSize="?attr/font14"
         android:visibility="gone" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -53,6 +53,6 @@
         android:paddingEnd="@dimen/dp_15"
         android:text="入库"
         android:textColor="@color/white"
-        android:textSize="@dimen/sp_14"
+        android:textSize="?attr/font14"
         android:visibility="gone" />
 </androidx.appcompat.widget.Toolbar>

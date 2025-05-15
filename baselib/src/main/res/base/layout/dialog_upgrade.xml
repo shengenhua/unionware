@@ -29,7 +29,7 @@
                     android:paddingTop="@dimen/dp_10"
                     android:text="提示"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/sp_16"
+                    android:textSize="?attr/font16"
                     app:layout_constraintBottom_toTopOf="@+id/tvVer"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
                     android:gravity="center"
                     android:paddingBottom="@dimen/dp_10"
                     android:textColor="?attr/colorPrimary"
-                    android:textSize="@dimen/sp_10"
+                    android:textSize="?attr/font10"
                     app:layout_constraintBottom_toTopOf="@+id/tvPrompt"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +65,7 @@
                     android:paddingHorizontal="@dimen/dp_5"
                     android:paddingVertical="@dimen/dp_8"
                     android:text=""
-                    android:textSize="@dimen/sp_13"
+                    android:textSize="?attr/font13"
                     app:layout_constraintBottom_toTopOf="@+id/llButton"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +98,7 @@
                         android:gravity="center"
                         android:padding="@dimen/dp_10"
                         android:text="取消"
-                        android:textSize="@dimen/sp_12" />
+                        android:textSize="?attr/font12" />
 
                     <TextView
                         android:id="@+id/btnLine"
@@ -116,7 +116,7 @@
                         android:gravity="center"
                         android:padding="@dimen/dp_10"
                         android:text="确定"
-                        android:textSize="@dimen/sp_12" />
+                        android:textSize="?attr/font12" />
                 </LinearLayout>
 
 

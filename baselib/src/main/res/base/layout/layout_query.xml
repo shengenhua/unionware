@@ -20,7 +20,7 @@
         android:paddingBottom="@dimen/dp_10"
         android:singleLine="true"
         android:textColor="@color/black"
-        android:textSize="@dimen/sp_16"
+        android:textSize="?attr/font16"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

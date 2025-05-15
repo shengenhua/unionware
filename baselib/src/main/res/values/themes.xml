@@ -50,7 +50,7 @@
     <!-- ToolBar菜单样式 -->
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
         <item name="actionMenuTextColor">?attr/colorPrimary</item>
-        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:textSize">?attr/font16</item>
     </style>
 
     <style name="EMSToolbar" parent="ThemeOverlay.AppCompat.ActionBar">
@@ -65,12 +65,12 @@
     </style>
 
     <style name="ToolbarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">@dimen/sp_16</item> <!-- 设置文字大小为 20sp -->
+        <item name="android:textSize">?attr/font16</item> <!-- 设置文字大小为 20sp -->
         <!-- 其他样式设置，例如颜色、字体等 -->
     </style>
 
     <style name="AppThemeToolbar" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
-        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:textSize">?attr/font16</item>
         <item name="colorPrimaryDark">@color/lightThemeColor</item>
         <!--        控件在选中状态或获取焦点状态下使用这个颜色-->
         <item name="colorAccent">?attr/colorPrimary</item>

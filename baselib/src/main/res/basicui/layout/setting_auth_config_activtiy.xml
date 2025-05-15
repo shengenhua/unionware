@@ -47,7 +47,7 @@
                     android:paddingHorizontal="@dimen/dp_10"
                     android:text="设备特征码"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/sp_18"
+                    android:textSize="?attr/font18"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -63,7 +63,7 @@
                     android:text="343545436765"
                     android:textColor="@color/gray"
                     android:textIsSelectable="true"
-                    android:textSize="@dimen/sp_18"
+                    android:textSize="?attr/font18"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -81,7 +81,7 @@
                     android:paddingHorizontal="@dimen/dp_10"
                     android:text="授权状态"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/sp_18"
+                    android:textSize="?attr/font18"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -96,7 +96,7 @@
                     android:paddingVertical="@dimen/dp_10"
                     android:text="未授权"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/sp_18"
+                    android:textSize="?attr/font18"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -141,7 +141,7 @@
                 android:paddingVertical="@dimen/dp_10"
                 android:text="授权"
                 android:textColor="@color/white"
-                android:textSize="@dimen/sp_16"
+                android:textSize="?attr/font16"
                 app:layout_constraintTop_toBottomOf="@id/et_login_pwd" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -43,7 +43,7 @@
             app:layout_constraintEnd_toStartOf="@+id/etScanInput"
             app:layout_constraintStart_toEndOf="@+id/tvScanTitle"
             app:layout_constraintTop_toTopOf="@+id/etScanInput" />
-        <!--    android:textSize="@dimen/sp_14"-->
+        <!--    android:textSize="?attr/font14"-->
 
 
         <androidx.appcompat.widget.AppCompatEditText

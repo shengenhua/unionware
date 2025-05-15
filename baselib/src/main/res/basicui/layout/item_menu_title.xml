@@ -25,6 +25,6 @@
         android:gravity="center"
         android:textColor="#323232"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="@dimen/sp_16"
+        android:textSize="?attr/font16"
         app:layout_constraintStart_toEndOf="@+id/tv_packing_menu_diver" />
 </androidx.constraintlayout.widget.ConstraintLayout>

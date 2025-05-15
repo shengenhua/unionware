@@ -36,7 +36,7 @@
                 android:paddingHorizontal="@dimen/dp_6"
                 android:paddingVertical="@dimen/dp_5"
                 android:textColor="@color/black"
-                android:textSize="@dimen/sp_18"
+                android:textSize="?attr/font18"
                 android:textStyle="bold" />
 
         </com.google.android.material.card.MaterialCardView>

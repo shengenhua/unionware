@@ -238,8 +238,10 @@ object ToastUtil {
                     setBgColor(ContextCompat.getColor(this, R.color.toast_bg))
                 }
                 setNotUseSystemToast()
-                context?.resources?.apply {
-                    setTextSize(getDimensionPixelSize(R.dimen.sp_8))
+                context?.apply {
+                    theme.obtainStyledAttributes(arrayOf(R.attr.font10).toIntArray()).apply {
+                        setTextSize(this.getDimension(0, 10f).toInt())
+                    }
                 }
                 setDurationIsLong(Toast.LENGTH_LONG == duration)
             }

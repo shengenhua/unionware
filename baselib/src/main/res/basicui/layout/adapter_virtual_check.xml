@@ -16,7 +16,7 @@
         android:layout_marginVertical="@dimen/dp_1"
         android:paddingHorizontal="@dimen/dp_5"
         android:paddingVertical="@dimen/dp_2">
-        <!--    android:textSize="@dimen/sp_14"-->
+        <!--    android:textSize="?attr/font14"-->
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/cbValue"
             android:layout_width="0dp"

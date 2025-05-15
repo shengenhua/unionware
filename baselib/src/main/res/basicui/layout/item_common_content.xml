@@ -18,7 +18,7 @@
         android:paddingTop="@dimen/dp_4"
         android:text="建议仓库/储位"
         android:textColor="#454545"
-        android:textSize="@dimen/sp_12"
+        android:textSize="?attr/font12"
         app:layout_constraintBottom_toBottomOf="@+id/tv_show_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_show_content" />
@@ -32,7 +32,7 @@
         android:gravity="center_vertical"
         android:text="1 11:03030303030303030303030303030303030303030303030303:51"
         android:textColor="#0A0A0A"
-        android:textSize="@dimen/sp_12"
+        android:textSize="?attr/font12"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/tv_show_title"
         app:layout_constraintEnd_toEndOf="parent"

@@ -17,7 +17,7 @@
     <item
         android:id="@+id/action_submit"
         android:orderInCategory="100"
-        android:textSize="@dimen/sp_14"
+        android:textSize="?attr/font14"
         android:title="提交"
         android:titleTextColor="#FFFFFF"
         app:showAsAction="always" />

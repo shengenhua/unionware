@@ -17,7 +17,7 @@
         android:gravity="center"
         android:padding="0dp"
         android:textColor="@color/white"
-        android:textSize="@dimen/sp_15"
+        android:textSize="?attr/font15"
         tools:text="这是测试吐司" />
 
 </LinearLayout>

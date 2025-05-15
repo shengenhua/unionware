@@ -43,7 +43,7 @@
             app:layout_constraintEnd_toStartOf="@+id/tvDataTime"
             app:layout_constraintStart_toEndOf="@+id/tvScanTitle"
             app:layout_constraintTop_toTopOf="parent" />
-        <!--    android:textSize="@dimen/sp_14"-->
+        <!--    android:textSize="?attr/font14"-->
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvDataTime"
