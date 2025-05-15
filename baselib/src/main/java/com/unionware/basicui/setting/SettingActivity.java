@@ -103,7 +103,7 @@ public class SettingActivity extends BaseBindActivity<SettingActivityBinding> {
             }
             case 5: {
                 if (bean.getMethod() != null) {
-                    runOnUiThread(bean.getMethod());
+                    runOnUiThread(() -> bean.getMethod().run(this));
                 }
                 break;
             }
@@ -141,7 +141,7 @@ public class SettingActivity extends BaseBindActivity<SettingActivityBinding> {
             viewModel.getAppLastest();
         }));
 */
-        SettingConfig.addSettingBeans(new SettingBean("检查更新", () -> {
+        SettingConfig.addSettingBeans(new SettingBean("检查更新", (activity) -> {
             viewModel.getAppLastest();
         }));
 
@@ -149,7 +149,7 @@ public class SettingActivity extends BaseBindActivity<SettingActivityBinding> {
     }
 
     protected List<SettingBean> getBottomMenu() {
-        SettingBean loginOut = new SettingBean("退出登陆", () -> {
+        SettingBean loginOut = new SettingBean("退出登陆", (activity) -> {
             viewModel.loginOut();
             MMKV kv = MMKV.mmkvWithID("app");
             kv.encode("isLogin", false);

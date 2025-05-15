@@ -20,6 +20,7 @@ import com.unionware.virtual.viewmodel.QueryListViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import unionware.base.app.utils.ReflectUtils
+import kotlin.compareTo
 
 
 /**
@@ -41,11 +42,8 @@ abstract class BaseVirQListActivity<VM : QueryListViewModel> :
             lifecycleScope.launch {
                 delay(200)
                 if (it.isEmpty()) {
-                    adapterHelper?.leadingLoadState = LoadState.Error(Exception("暂无数据"))
-                    adapterHelper?.leadingLoadState = LoadState.NotLoading(false)
-                    adapterHelper?.trailingLoadState = LoadState.NotLoading(false)
+                    adapterHelper?.trailingLoadState = LoadState.NotLoading(true)
                 } else if (it.size < 20) {
-                    adapterHelper?.leadingLoadState = LoadState.NotLoading(false)
                     adapterHelper?.trailingLoadState = LoadState.NotLoading(true)
                 } else {
                     adapterHelper?.trailingLoadState = LoadState.NotLoading(false)

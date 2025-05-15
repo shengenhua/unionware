@@ -32,6 +32,13 @@ inline fun <reified T : Activity> Context.startActivity(bundle: Bundle?, flags: 
     })
 
 }
+fun Context.getTopActivity(className: String): Activity? {
+    val activityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+    if (activityManager.appTasks.isNotEmpty()) {
+        return activityManager.appTasks[0].taskInfo.topActivity as Activity
+    }
+    return null
+}
 
 fun Context.isActivityOnTop(className: String): Boolean {
     val activityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager

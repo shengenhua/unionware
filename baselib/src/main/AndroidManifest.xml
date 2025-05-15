@@ -75,6 +75,7 @@
         <activity android:name="com.unionware.basicui.base.activity.BasicOtherActivity" />
         <activity android:name="com.unionware.basicui.setting.AboutUsActivity" />
         <activity android:name="com.unionware.basicui.setting.apptheme.UnionwareThemeActivity" />
+        <activity android:name="com.unionware.basicui.setting.apptheme.ThemeTextActivity" />
     </application>
 
 </manifest>

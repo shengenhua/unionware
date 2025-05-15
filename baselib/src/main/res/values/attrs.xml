@@ -38,4 +38,34 @@
         <attr name="bar_lineSize" format="dimension" />
         <attr name="bar_lineMargin" format="dimension" />
     </declare-styleable>
+
+    <attr name="font10" format="dimension" />
+    <attr name="font11" format="dimension" />
+    <attr name="font12" format="dimension" />
+    <attr name="font13" format="dimension" />
+    <attr name="font14" format="dimension" />
+    <attr name="font15" format="dimension" />
+    <attr name="font16" format="dimension" />
+    <attr name="font17" format="dimension" />
+    <attr name="font18" format="dimension" />
+    <attr name="font19" format="dimension" />
+    <attr name="font20" format="dimension" />
+    <attr name="font21" format="dimension" />
+    <attr name="font22" format="dimension" />
+    <attr name="font23" format="dimension" />
+    <attr name="font24" format="dimension" />
+    <attr name="font25" format="dimension" />
+    <attr name="font26" format="dimension" />
+    <attr name="font27" format="dimension" />
+    <attr name="font28" format="dimension" />
+    <attr name="font29" format="dimension" />
+    <attr name="font30" format="dimension" />
+    <attr name="font32" format="dimension" />
+    <attr name="font34" format="dimension" />
+    <attr name="font36" format="dimension" />
+    <attr name="font38" format="dimension" />
+    <attr name="font40" format="dimension" />
+    <attr name="font42" format="dimension" />
+    <attr name="font48" format="dimension" />
+
 </resources>

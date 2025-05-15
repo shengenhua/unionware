@@ -10,15 +10,19 @@ import androidx.recyclerview.widget.RecyclerView;
 public class NoTouchRecyclerView extends RecyclerView {
     public NoTouchRecyclerView(Context context) {
         super(context);
+        setOverScrollMode(OVER_SCROLL_NEVER);
     }
 
     public NoTouchRecyclerView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        setOverScrollMode(OVER_SCROLL_NEVER);
     }
 
     public NoTouchRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        setOverScrollMode(OVER_SCROLL_NEVER);
     }
+
     @Override
     public boolean onTouchEvent(MotionEvent e) {
         return false;

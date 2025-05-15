@@ -88,4 +88,118 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/dp_10</item>
     </style>
+
+    <style name="Default_TextSize_Small" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="font10">@dimen/sp_6</item>
+        <item name="font11">@dimen/sp_7</item>
+        <item name="font12">@dimen/sp_8</item>
+        <item name="font13">@dimen/sp_9</item>
+        <item name="font14">@dimen/sp_10</item>
+        <item name="font15">@dimen/sp_11</item>
+        <item name="font16">@dimen/sp_12</item>
+        <item name="font17">@dimen/sp_13</item>
+        <item name="font18">@dimen/sp_14</item>
+        <item name="font19">@dimen/sp_15</item>
+        <item name="font20">@dimen/sp_16</item>
+        <item name="font21">@dimen/sp_17</item>
+        <item name="font22">@dimen/sp_18</item>
+        <item name="font23">@dimen/sp_19</item>
+        <item name="font24">@dimen/sp_20</item>
+        <item name="font25">@dimen/sp_21</item>
+        <item name="font28">@dimen/sp_25</item>
+        <item name="font30">@dimen/sp_28</item>
+        <item name="font32">@dimen/sp_28</item>
+        <item name="font34">@dimen/sp_30</item>
+        <item name="font36">@dimen/sp_32</item>
+        <item name="font38">@dimen/sp_34</item>
+        <item name="font40">@dimen/sp_36</item>
+        <item name="font42">@dimen/sp_38</item>
+        <item name="font48">@dimen/sp_42</item>
+    </style>
+
+    <style name="Default_TextSize_Medium" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="font10">@dimen/sp_10</item>
+        <item name="font11">@dimen/sp_11</item>
+        <item name="font12">@dimen/sp_12</item>
+        <item name="font13">@dimen/sp_13</item>
+        <item name="font14">@dimen/sp_14</item>
+        <item name="font15">@dimen/sp_15</item>
+        <item name="font16">@dimen/sp_16</item>
+        <item name="font17">@dimen/sp_17</item>
+        <item name="font18">@dimen/sp_18</item>
+        <item name="font19">@dimen/sp_19</item>
+        <item name="font20">@dimen/sp_20</item>
+        <item name="font21">@dimen/sp_21</item>
+        <item name="font22">@dimen/sp_22</item>
+        <item name="font23">@dimen/sp_23</item>
+        <item name="font24">@dimen/sp_24</item>
+        <item name="font25">@dimen/sp_25</item>
+        <item name="font28">@dimen/sp_28</item>
+        <item name="font30">@dimen/sp_30</item>
+        <item name="font32">@dimen/sp_32</item>
+        <item name="font34">@dimen/sp_34</item>
+        <item name="font36">@dimen/sp_36</item>
+        <item name="font38">@dimen/sp_36</item>
+        <item name="font40">@dimen/sp_40</item>
+        <item name="font42">@dimen/sp_42</item>
+        <item name="font48">@dimen/sp_48</item>
+    </style>
+
+
+    <style name="Default_TextSize_Big" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="font10">@dimen/sp_12</item>
+        <item name="font11">@dimen/sp_13</item>
+        <item name="font12">@dimen/sp_14</item>
+        <item name="font13">@dimen/sp_15</item>
+        <item name="font14">@dimen/sp_16</item>
+        <item name="font15">@dimen/sp_17</item>
+        <item name="font16">@dimen/sp_18</item>
+        <item name="font17">@dimen/sp_19</item>
+        <item name="font18">@dimen/sp_20</item>
+        <item name="font19">@dimen/sp_21</item>
+        <item name="font20">@dimen/sp_22</item>
+        <item name="font21">@dimen/sp_23</item>
+        <item name="font22">@dimen/sp_24</item>
+        <item name="font23">@dimen/sp_25</item>
+        <item name="font24">@dimen/sp_25</item>
+        <item name="font25">@dimen/sp_28</item>
+        <item name="font28">@dimen/sp_30</item>
+        <item name="font30">@dimen/sp_32</item>
+        <item name="font32">@dimen/sp_34</item>
+        <item name="font34">@dimen/sp_36</item>
+        <item name="font36">@dimen/sp_38</item>
+        <item name="font38">@dimen/sp_40</item>
+        <item name="font40">@dimen/sp_42</item>
+        <item name="font42">@dimen/sp_48</item>
+        <item name="font48">@dimen/sp_48</item>
+    </style>
+
+
+    <style name="Default_TextSize_Huge" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="font10">@dimen/sp_15</item>
+        <item name="font11">@dimen/sp_16</item>
+        <item name="font12">@dimen/sp_17</item>
+        <item name="font13">@dimen/sp_18</item>
+        <item name="font14">@dimen/sp_19</item>
+        <item name="font15">@dimen/sp_20</item>
+        <item name="font16">@dimen/sp_21</item>
+        <item name="font17">@dimen/sp_22</item>
+        <item name="font18">@dimen/sp_23</item>
+        <item name="font19">@dimen/sp_24</item>
+        <item name="font20">@dimen/sp_25</item>
+        <item name="font21">@dimen/sp_28</item>
+        <item name="font22">@dimen/sp_30</item>
+        <item name="font23">@dimen/sp_32</item>
+        <item name="font24">@dimen/sp_32</item>
+        <item name="font25">@dimen/sp_36</item>
+        <item name="font28">@dimen/sp_36</item>
+        <item name="font30">@dimen/sp_38</item>
+        <item name="font32">@dimen/sp_38</item>
+        <item name="font34">@dimen/sp_40</item>
+        <item name="font36">@dimen/sp_40</item>
+        <item name="font38">@dimen/sp_40</item>
+        <item name="font40">@dimen/sp_48</item>
+        <item name="font42">@dimen/sp_48</item>
+        <item name="font48">@dimen/sp_48</item>
+    </style>
 </resources>

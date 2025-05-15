@@ -2,10 +2,12 @@ package com.unionware.basicui.setting
 
 import com.tencent.mmkv.MMKV
 import com.unionware.basicui.setting.acth.AuthConfigActivity
+import com.unionware.basicui.setting.apptheme.ThemeTextActivity
 import com.unionware.basicui.setting.apptheme.UnionwareThemeActivity
 import com.unionware.basicui.setting.bean.SettingBean
 import com.unionware.path.RouterPath
 import unionware.base.app.utils.ToastUtil.showToast
+import kotlin.jvm.java
 
 /**
  * Author: sheng
@@ -30,6 +32,7 @@ class SettingConfig {
                 showToast("清除缓存成功")
             })
             settingBeans.add(SettingBean("主题", UnionwareThemeActivity::class.java))
+            settingBeans.add(SettingBean("字体调整", ThemeTextActivity::class.java))
             settingBeans.add(SettingBean("关于我们", AboutUsActivity::class.java))
             settingBeans.add(SettingBean("设备授权", AuthConfigActivity::class.java))
         }

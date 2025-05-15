@@ -63,12 +63,18 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         getInitTheme()?.apply {
             setTheme(this)
         }
+        initThemeTextSize()
 //        setTheme(R.style.UnionwareRed)
     }
 
+    open fun initThemeTextSize() {
+        MMKV.mmkvWithID("app").decodeInt("unionwareTextSize", 1).apply {
+            theme.applyStyle(this, true)
+        }
+    }
+
     open fun getInitTheme(): Int? {
-        val kv = MMKV.mmkvWithID("app")
-        kv.decodeInt("unionwareTheme",-1).apply {
+        MMKV.mmkvWithID("app").decodeInt("unionwareTheme", -1).apply {
             if (this != -1) {
                 return this
             }
@@ -89,15 +95,14 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         initView()
         initListener()
 
-        val totalTime = SystemClock.elapsedRealtime() - startTime
+//        val totalTime = SystemClock.elapsedRealtime() - startTime
 //        KLog.e(TAG, "onCreate: 当前进入的Activity: $localClassName 初始化时间:$totalTime ms")
     }
 
     protected open fun initFullScreen() {
         if (enableAllowFullScreen()) {
             window.setFlags(
-                WindowManager.LayoutParams.MATCH_PARENT,
-                WindowManager.LayoutParams.MATCH_PARENT
+                WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT
             )
             requestWindowFeature(Window.FEATURE_NO_TITLE)
         }
@@ -135,8 +140,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
             //是否显示标题
             supportActionBar!!.setDisplayShowTitleEnabled(false)
             setNavigationOnClickListener {
-                @Suppress("DEPRECATION")
-                onBackPressed()
+                @Suppress("DEPRECATION") onBackPressed()
             }
 
             if (enableToolBarLeft()) {

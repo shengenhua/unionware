@@ -1,5 +1,6 @@
 package com.unionware.basicui.setting.bean
 
+import android.app.Activity
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 
@@ -24,7 +25,7 @@ class SettingBean {
         this.path = path
     }
 
-    constructor(name: String?, method: Runnable?) {
+    constructor(name: String?, method: SettingRunnable?) {
         this.name = name
         this.method = method
     }
@@ -108,9 +109,13 @@ class SettingBean {
     /**
      * 方法
      */
-    var method: Runnable? = null
+    var method: SettingRunnable? = null
         set(value) {
             type = 5
             field = value
         }
+
+    fun interface SettingRunnable {
+        fun run(activity: Activity)
+    }
 }
