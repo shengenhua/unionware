@@ -26,7 +26,7 @@ class UnionwareTextThemeAdapter :
         item?.apply {
             holder.binding.rbThemeName.apply {
                 MMKV.mmkvWithID("app")
-                    .decodeInt("unionwareTextSize", R.style.Default_TextSize_Medium).apply {
+                    .decodeInt("themeText", R.style.Default_TextSize_Medium).apply {
                         isChecked = this == item.themeStyle
                     }
                 text = themeName

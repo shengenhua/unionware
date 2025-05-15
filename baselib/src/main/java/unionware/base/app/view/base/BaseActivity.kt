@@ -64,12 +64,11 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
             setTheme(this)
         }
         initThemeTextSize()
-//        setTheme(R.style.UnionwareRed)
     }
 
     open fun initThemeTextSize() {
         MMKV.mmkvWithID("app").decodeInt("unionwareTextSize", 1).apply {
-            theme.applyStyle(this, true)
+            theme.applyStyle(this, false)
         }
     }
 

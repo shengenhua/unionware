@@ -16,6 +16,7 @@ class ThemeTextActivity : BaseBindActivity<ActivityThemeTextBinding>() {
         setOnItemClickListener { adapter, view, position ->
             val item = getItem(position)
             mmkv.encode("themeText", item?.themeStyle ?: R.style.Default_TextSize_Medium)
+            recreate()
         }
     }
 
