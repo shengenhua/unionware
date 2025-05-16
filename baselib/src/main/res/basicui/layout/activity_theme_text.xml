@@ -14,34 +14,32 @@
             layout="@layout/item_common_toolbar"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/themeRecyclerView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:max="3"
-            android:progress="1"
-            android:progressTint="?attr/colorPrimary"
-            android:thumbTint="?attr/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/llTextShow"
-            app:layout_constraintTop_toBottomOf="@+id/layout_toolbar" />
 
         <LinearLayout
             android:id="@+id/llTextShow"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintVertical_weight="1"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/btSave"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/themeRecyclerView">
+            app:layout_constraintTop_toBottomOf="@+id/layout_toolbar"
+            app:layout_constraintVertical_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/themeRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/llTextShow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_toolbar" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/textShowRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
         </LinearLayout>
 
         <Button

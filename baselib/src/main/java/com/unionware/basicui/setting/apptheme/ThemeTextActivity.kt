@@ -20,7 +20,7 @@ class ThemeTextActivity : BaseBindActivity<ActivityThemeTextBinding>() {
             mmkv.encode("themeText", item?.themeStyle ?: R.style.Default_TextSize_Medium)
 //            recreate()
             this.notifyItemRangeChanged(0, this.itemCount)
-            textStyleAdapter.notifyItemRangeChanged(0, textStyleAdapter.itemCount)
+//            textStyleAdapter.notifyItemRangeChanged(0, textStyleAdapter.itemCount)
         }
     }
     private val textStyleAdapter = TextStyleAdapter().apply {
@@ -47,13 +47,13 @@ class ThemeTextActivity : BaseBindActivity<ActivityThemeTextBinding>() {
             layoutToolbar.tbTitle.text = "字体设置"
             layoutToolbar.toolbar.setNavigationOnClickListener { finish() }
             themeRecyclerView.apply {
-                layoutManager = GridLayoutManager(this@ThemeTextActivity, 4)
+                layoutManager = LinearLayoutManager(this@ThemeTextActivity)
                 adapter = unionwareThemeAdapter
             }
-            textShowRecyclerView.apply {
+            /*textShowRecyclerView.apply {
                 layoutManager = LinearLayoutManager(this@ThemeTextActivity)
                 adapter = textStyleAdapter
-            }
+            }*/
             btSave.setOnClickListener {
                 mmkv.encode(
                     "unionwareTextSize",

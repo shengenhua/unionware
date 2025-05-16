@@ -41,7 +41,7 @@ class UnionwareThemeConfig {
         @JvmStatic
         fun addUnionwareTheme(vararg beans: UnionwareTheme) {
             beans.forEach {
-                val oldBean = themeList.firstOrNull { bean -> bean.themeStyle == it.themeStyle }
+                val oldBean = themeList.firstOrNull { bean -> bean.themeName == it.themeName }
                 if (oldBean != null) {
                     oldBean.apply {
                         themeStyle = it.themeStyle
@@ -62,7 +62,7 @@ class UnionwareThemeConfig {
         @JvmStatic
         fun addUnionwareTextTheme(vararg beans: UnionwareTextTheme) {
             beans.forEach {
-                val oldBean = textThemeList.firstOrNull { bean -> bean.themeStyle == it.themeStyle }
+                val oldBean = textThemeList.firstOrNull { bean -> bean.themeName == it.themeName }
                 if (oldBean != null) {
                     oldBean.apply {
                         themeStyle = it.themeStyle

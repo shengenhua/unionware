@@ -24,12 +24,16 @@ class UnionwareTextThemeAdapter :
         item: UnionwareTextTheme?,
     ) {
         item?.apply {
-            holder.binding.rbThemeName.apply {
+            holder.binding.apply {
+                tvShowName.text = themeName
+                context.obtainStyledAttributes(item.themeStyle, arrayOf(R.attr.font10).toIntArray())
+                    .apply {
+                        tvShowName.textSize = this.getDimension(0, 10f)
+                    }
                 MMKV.mmkvWithID("app")
                     .decodeInt("themeText", R.style.Default_TextSize_Medium).also {
-                        isChecked = it == item.themeStyle
+                        rbThemeName.isChecked = it == item.themeStyle
                     }
-                text = themeName
             }
         }
     }
