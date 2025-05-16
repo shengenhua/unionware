@@ -55,12 +55,12 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
     private lateinit var mViewStubError: ViewStub
 
     override fun attachBaseContext(newBase: Context?) {
-        getInitTheme()?.apply {
-            setTheme(this)
-        }
         super.attachBaseContext(newBase)
         mContext = newBase ?: this
 
+        getInitTheme()?.apply {
+            setTheme(this)
+        }
         initThemeTextSize()
         theme.applyStyle(R.style.ItemSizeTheme, false)
     }
