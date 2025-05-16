@@ -39,6 +39,7 @@
                         android:clickable="false"
                         android:padding="@dimen/dp_2"
                         android:singleLine="true"
+                        android:textSize="@dimen/sp_10"
                         android:textColor="?attr/colorPrimary"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"

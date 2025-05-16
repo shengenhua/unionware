@@ -55,21 +55,21 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
     private lateinit var mViewStubError: ViewStub
 
     override fun attachBaseContext(newBase: Context?) {
-        super.attachBaseContext(newBase)
-        mContext = newBase ?: this
-    }
-
-    open fun initTheme() {
         getInitTheme()?.apply {
             setTheme(this)
         }
+        super.attachBaseContext(newBase)
+        mContext = newBase ?: this
+
         initThemeTextSize()
+        theme.applyStyle(R.style.ItemSizeTheme, false)
     }
 
     open fun initThemeTextSize() {
-        MMKV.mmkvWithID("app").decodeInt("unionwareTextSize", 1).apply {
-            theme.applyStyle(this, false)
-        }
+        MMKV.mmkvWithID("app").decodeInt("unionwareTextSize", R.style.Default_TextSize_Medium)
+            .apply {
+                theme.applyStyle(this, false)
+            }
     }
 
     open fun getInitTheme(): Int? {
@@ -83,7 +83,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        initTheme()
         super.onCreate(savedInstanceState)
         val startTime = SystemClock.elapsedRealtime()
         initFullScreen()

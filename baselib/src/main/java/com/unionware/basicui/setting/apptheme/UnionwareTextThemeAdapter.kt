@@ -26,14 +26,10 @@ class UnionwareTextThemeAdapter :
         item?.apply {
             holder.binding.rbThemeName.apply {
                 MMKV.mmkvWithID("app")
-                    .decodeInt("themeText", R.style.Default_TextSize_Medium).apply {
-                        isChecked = this == item.themeStyle
+                    .decodeInt("themeText", R.style.Default_TextSize_Medium).also {
+                        isChecked = it == item.themeStyle
                     }
                 text = themeName
-                context.obtainStyledAttributes(item.themeStyle, arrayOf(R.attr.font10).toIntArray())
-                    .apply {
-                        textSize = this.getDimension(0, 10f)
-                    }
             }
         }
     }

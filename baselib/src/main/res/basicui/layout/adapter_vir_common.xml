@@ -27,7 +27,7 @@
             android:maxWidth="@dimen/dp_150"
             android:text="@{commonItem.key+`:`}"
             android:textColor="#454545"
-            android:textSize="?attr/font12"
+            android:textSize="@dimen/common_title"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +43,7 @@
             android:gravity="center_vertical"
             android:text="@{commonItem.val}"
             android:textColor="#0A0A0A"
-            android:textSize="?attr/font12"
+            android:textSize="@dimen/common_text"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

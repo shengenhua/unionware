@@ -89,6 +89,21 @@
         <item name="cornerSize">@dimen/dp_10</item>
     </style>
 
+    <style name="ItemSizeTheme">
+        <item name="item_vv_title_size">?attr/font13</item>
+        <item name="item_vv_value_size">?attr/font13</item>
+        <item name="vv_title_size">?attr/font13</item>
+        <item name="vv_item_size">?attr/font14</item>
+        <item name="head_vv_item_size">?attr/font13</item>
+        <item name="item_title_size">?attr/font11</item>
+        <item name="item_value_size">?attr/font11</item>
+        <item name="title_size">?attr/font13</item>
+        <item name="item_size">?attr/font11</item>
+        <item name="head_item_size">?attr/font13</item>
+        <item name="fab_size_mini">?attr/font40</item>
+        <item name="feature_size">?attr/font30</item>
+    </style>
+
     <style name="Default_TextSize_Small" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="font10">@dimen/sp_6</item>
         <item name="font11">@dimen/sp_7</item>

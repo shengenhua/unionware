@@ -28,7 +28,7 @@
             android:paddingHorizontal="@dimen/dp_5"
             android:singleLine="true"
             android:text="@{item.name}"
-            android:textSize="@dimen/vv_title_size"
+            android:textSize="?attr/vv_title_size"
             app:buttonTint="?attr/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -49,7 +49,7 @@
                 android:singleLine="true"
                 android:text="@{billData.codeName+`：`}"
                 android:textColor="@color/black"
-                android:textSize="?attr/font18"
+                android:textSize="@dimen/bill_title"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

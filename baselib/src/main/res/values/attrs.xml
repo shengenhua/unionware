@@ -4,7 +4,7 @@
     <declare-styleable name="TriangleButton">
         <attr name="triangleColor" format="color" />
 
-        <attr name="triangleSeat" >
+        <attr name="triangleSeat">
             <enum name="topRight" value="0x01" />
             <enum name="topLeft" value="0x02" />
             <enum name="endRight" value="0x03" />
@@ -15,10 +15,10 @@
     <!-- 设置栏 -->
     <declare-styleable name="SettingBar">
         <!-- 左边 -->
-        <attr name="bar_leftText" format="string"/>
+        <attr name="bar_leftText" format="string" />
         <attr name="bar_leftTextColor" format="color" />
         <attr name="bar_leftTextSize" format="dimension" />
-        <attr name="bar_leftTextHint" format="string"/>
+        <attr name="bar_leftTextHint" format="string" />
         <attr name="bar_leftDrawable" format="reference" />
         <attr name="bar_leftDrawablePadding" format="dimension" />
         <attr name="bar_leftDrawableSize" format="dimension" />
@@ -27,7 +27,7 @@
         <attr name="bar_rightText" format="string" />
         <attr name="bar_rightTextColor" format="color" />
         <attr name="bar_rightTextSize" format="dimension" />
-        <attr name="bar_rightTextHint" format="string"/>
+        <attr name="bar_rightTextHint" format="string" />
         <attr name="bar_rightDrawable" format="reference" />
         <attr name="bar_rightDrawablePadding" format="dimension" />
         <attr name="bar_rightDrawableSize" format="dimension" />
@@ -67,5 +67,18 @@
     <attr name="font40" format="dimension" />
     <attr name="font42" format="dimension" />
     <attr name="font48" format="dimension" />
+
+    <attr name="item_vv_title_size" format="dimension" />
+    <attr name="item_vv_value_size" format="dimension" />
+    <attr name="vv_title_size" format="dimension" />
+    <attr name="vv_item_size" format="dimension" />
+    <attr name="head_vv_item_size" format="dimension" />
+    <attr name="item_title_size" format="dimension" />
+    <attr name="item_value_size" format="dimension" />
+    <attr name="title_size" format="dimension" />
+    <attr name="item_size" format="dimension" />
+    <attr name="head_item_size" format="dimension" />
+    <attr name="fab_size_mini" format="dimension" />
+    <attr name="feature_size" format="dimension" />
 
 </resources>
