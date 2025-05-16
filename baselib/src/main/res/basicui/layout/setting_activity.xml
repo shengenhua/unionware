@@ -25,7 +25,7 @@
                 android:paddingVertical="@dimen/dp_8"
                 android:text="设置"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/dp_16" />
+                android:textSize="?font16" />
         </androidx.appcompat.widget.Toolbar>
 
         <androidx.recyclerview.widget.RecyclerView

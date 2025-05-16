@@ -11,6 +11,8 @@
             android:id="@+id/sbItem"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:bar_leftTextSize="?font15"
+            app:bar_rightTextSize="?font14"
             app:bar_rightDrawable="@drawable/arrows_right_ic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -29,6 +29,7 @@ class UnionwareThemeConfig {
                     UnionwareTextTheme(R.style.Default_TextSize_Medium, "标准"),
                     UnionwareTextTheme(R.style.Default_TextSize_Big, "大"),
                     UnionwareTextTheme(R.style.Default_TextSize_Huge, "极大"),
+                    UnionwareTextTheme(R.style.Default_TextSize_Gigantic, "巨大"),
                 )
             )
         }
