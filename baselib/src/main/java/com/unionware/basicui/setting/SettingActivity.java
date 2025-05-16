@@ -43,11 +43,6 @@ public class SettingActivity extends BaseBindActivity<SettingActivityBinding> {
     }
 
     @Override
-    public void initTheme() {
-        super.initTheme();
-    }
-
-    @Override
     protected void initCommonView() {
         super.initCommonView();
         viewModel = new ViewModelProvider(this).get(SettingViewModel.class);

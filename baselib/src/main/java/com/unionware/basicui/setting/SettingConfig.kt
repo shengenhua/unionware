@@ -29,6 +29,13 @@ class SettingConfig {
             )
             settingBeans.add(SettingBean("打印设置", RouterPath.Print.PATH_PRINT_SET_MAIN))
             settingBeans.add(SettingBean("清除缓存") {
+                it.cacheDir?.apply {
+                    if (isDirectory) {
+                        this.listFiles()?.forEach {
+                            it.delete()
+                        }
+                    }
+                }
                 showToast("清除缓存成功")
             })
             settingBeans.add(SettingBean("主题", UnionwareThemeActivity::class.java))

@@ -79,6 +79,8 @@
     <attr name="item_size" format="dimension" />
     <attr name="head_item_size" format="dimension" />
     <attr name="fab_size_mini" format="dimension" />
-    <attr name="feature_size" format="dimension" />
+    <attr name="common_text" format="dimension" />
+    <attr name="common_title" format="dimension" />
+    <attr name="bill_title" format="dimension" />
 
 </resources>
