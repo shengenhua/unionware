@@ -100,7 +100,6 @@
         <item name="title_size">?attr/font13</item>
         <item name="item_size">?attr/font11</item>
         <item name="head_item_size">?attr/font13</item>
-        <item name="fab_size_mini">?attr/font40</item>
         <item name="common_text">?attr/font12</item>
         <item name="common_title">?attr/font12</item>
         <item name="bill_title">?attr/font18</item>
