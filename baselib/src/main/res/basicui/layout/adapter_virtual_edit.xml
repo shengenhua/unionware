@@ -68,13 +68,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="0.6"
             app:layout_constraintStart_toEndOf="@+id/view1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvValueName"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:background="@drawable/edit_enabled_bg"
             android:paddingVertical="@dimen/dp_5"
             android:paddingStart="@dimen/dp_8"
@@ -84,11 +83,11 @@
             android:textColor="@color/black"
             android:textSize="?attr/vv_item_size"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/etScanInput"
+            app:layout_constraintEnd_toEndOf="@+id/etScanInput"
             app:layout_constraintHorizontal_weight="0.6"
-            app:layout_constraintStart_toEndOf="@+id/view1"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/etScanInput"
+            app:layout_constraintTop_toTopOf="@+id/etScanInput" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivDelete"

@@ -19,7 +19,8 @@ class ThemeTextActivity : BaseBindActivity<ActivityThemeTextBinding>() {
             val item = getItem(position)
             mmkv.encode("themeText", item?.themeStyle ?: R.style.Default_TextSize_Medium)
 //            recreate()
-            textStyleAdapter.notifyItemChanged(0, textStyleAdapter.itemCount)
+            this.notifyItemRangeChanged(0, this.itemCount)
+            textStyleAdapter.notifyItemRangeChanged(0, textStyleAdapter.itemCount)
         }
     }
     private val textStyleAdapter = TextStyleAdapter().apply {
@@ -28,18 +29,11 @@ class ThemeTextActivity : BaseBindActivity<ActivityThemeTextBinding>() {
                 TextStyle(R.attr.font10, "文本 10"),
                 TextStyle(R.attr.font12, "文本 12"),
                 TextStyle(R.attr.font14, "文本 14"),
-                TextStyle(R.attr.font16, "文本 16"),
                 TextStyle(R.attr.font18, "文本 18"),
                 TextStyle(R.attr.font20, "文本 20"),
-//            TextStyle(R.attr.font22, "文本 22"),
                 TextStyle(R.attr.font24, "文本 24"),
-                TextStyle(R.attr.font26, "文本 26"),
-                TextStyle(R.attr.font28, "文本 28"),
-                TextStyle(R.attr.font30, "文本 30"),
+                TextStyle(R.attr.font25, "文本 25"),
                 TextStyle(R.attr.font32, "文本 32"),
-                TextStyle(R.attr.font34, "文本 34"),
-//            TextStyle(R.attr.font36, "文本 36"),
-                TextStyle(R.attr.font38, "文本 38"),
                 TextStyle(R.attr.font40, "文本 40"),
             )
         )

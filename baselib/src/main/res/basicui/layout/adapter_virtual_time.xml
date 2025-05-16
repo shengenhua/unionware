@@ -39,10 +39,10 @@
             android:layout_height="0dp"
             android:paddingVertical="@dimen/dp_2"
             android:background="#DCDCDC"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDataTime"
             app:layout_constraintEnd_toStartOf="@+id/tvDataTime"
             app:layout_constraintStart_toEndOf="@+id/tvScanTitle"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/tvDataTime" />
         <!--    android:textSize="?attr/font14"-->
 
         <androidx.appcompat.widget.AppCompatTextView
