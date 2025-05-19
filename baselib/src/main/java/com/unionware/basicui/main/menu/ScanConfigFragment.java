@@ -1,5 +1,9 @@
 package com.unionware.basicui.main.menu;
 
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import android.view.View;
 
 import androidx.lifecycle.ViewModelProvider;
@@ -9,9 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.lxj.xpopup.XPopup;
 import com.tencent.mmkv.MMKV;
-import unionware.base.databinding.ScanConfigActivityBinding;
+import com.unionware.basicui.app.BasicAppProvider;
 import com.unionware.basicui.main.menu.adapter.MenuAdapter;
 import com.unionware.basicui.main.menu.adapter.MenuGridAdapter;
+import com.unionware.basicui.main.service.DeviceHeartService;
 import com.unionware.path.RouterPath;
 
 import java.util.ArrayList;
@@ -21,6 +26,7 @@ import unionware.base.app.ex.DeviceException;
 import unionware.base.app.utils.DeviceAuthUtils;
 import unionware.base.app.utils.LoadingUtil;
 import unionware.base.app.utils.ToastUtil;
+import unionware.base.databinding.ScanConfigActivityBinding;
 import unionware.base.model.bean.MenuTypeBean;
 import unionware.base.model.req.LoginReq;
 import unionware.base.room.DatabaseProvider;
@@ -39,6 +45,8 @@ public class ScanConfigFragment extends MainBaseFragment<ScanConfigActivityBindi
 
     private final MenuAdapter parentAdapter = new MenuAdapter();
     private final MenuGridAdapter menuAdapter = new MenuGridAdapter();
+    private ServiceConnection serviceConnection = null;
+
 
     @Override
     public void initObserve() {
@@ -98,6 +106,37 @@ public class ScanConfigFragment extends MainBaseFragment<ScanConfigActivityBindi
             LoadingUtil.dismiss();
             if (getActivity() == null) return;
             AppUpdateUtil.installAPK(getActivity(), file);
+        });
+        viewModel.getConnectFailure().observe(this, apiException -> {
+            new XPopup.Builder(getActivity())
+                    .dismissOnBackPressed(false)
+                    .dismissOnTouchOutside(false)
+                    .asConfirm("提示",
+                            "登陆异常:" + apiException.getErrorMsg(),
+                            () -> {
+                                URouter.build().action(BasicAppProvider.getPath(BasicAppProvider.LOGIN));
+                                getActivity().finish();
+                            }, () -> {
+                                URouter.build().action(BasicAppProvider.getPath(BasicAppProvider.LOGIN));
+                                getActivity().finish();
+                            })
+                    .show();
+        });
+        viewModel.getConnectSuccess().observe(this, s -> {
+            //开启服务
+            Intent intent = new Intent(getActivity(), DeviceHeartService.class);
+            serviceConnection = new ServiceConnection() {
+                @Override
+                public void onServiceConnected(ComponentName name, IBinder service) {
+                    // 当服务连接成功时调用
+                }
+
+                @Override
+                public void onServiceDisconnected(ComponentName name) {
+                    // 当服务连接断开时调用
+                }
+            };
+            getActivity().bindService(intent, serviceConnection, getActivity().BIND_AUTO_CREATE);
         });
     }
 
@@ -183,5 +222,13 @@ public class ScanConfigFragment extends MainBaseFragment<ScanConfigActivityBindi
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (serviceConnection != null) {
+            getActivity().unbindService(serviceConnection);
+        }
     }
 }

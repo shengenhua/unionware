@@ -23,6 +23,18 @@ interface UnionwAreRoute {
      */
     fun module(): Array<String>
 
+
+    /**
+     *  app 模块路由的name标识，可以写多个，会遍历name，进行匹配，没有会监听全部
+     */
+    fun names(): Array<String> = arrayOf()
+
+
+    /**
+     *  当前路由标识，用于区分当前路由
+     */
+    fun tag(): String
+
     /**
      * 初始化
      */

@@ -237,6 +237,23 @@ interface BasicApi {
     @POST("Kingdee.BOS.WebApi.ServicesStub.DynamicFormService.UploadFile.common.kdsvc")
     fun uploadFile(@Body req: UploadReq?): Observable<BaseResponse<FileResp>>?
 
+
+    /**
+     * 设备接入
+     *
+     * @return
+     */
+    @POST("UNW.MOM.WebApi.ServicesStub.OpenService.Invoke.common.kdsvc?action=\$Connected")
+    fun deviceConnect(@Body map: MutableMap<String, String>): Observable<BaseResponse<Map<String, String>>>
+
+    /**
+     * 设备心跳
+     *
+     * @return
+     */
+    @POST("UNW.MOM.WebApi.ServicesStub.OpenService.Invoke.common.kdsvc?action=\$Heartbeat")
+    fun deviceHeartbeat(): Observable<BaseResponse<Any>>
+
 //    /**
 //     * UnionWare.XMES.Report
 //     * 工序汇报

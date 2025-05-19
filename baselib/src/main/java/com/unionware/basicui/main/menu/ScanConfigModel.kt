@@ -1,9 +1,11 @@
 package com.unionware.basicui.main.menu
 
+import android.content.Context
 import android.text.TextUtils
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import com.tencent.mmkv.MMKV
+import com.unionware.basicui.UninowareAppConfig
 import com.unionware.lib_base.utils.ext.formatterYMD
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -11,6 +13,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import unionware.base.api.UserApi
+import unionware.base.api.basic.BasicApi
 import unionware.base.app.event.SingleLiveEvent
 import unionware.base.app.model.AppLastest
 import unionware.base.app.viewmodel.BaseViewModel
@@ -19,9 +22,11 @@ import unionware.base.model.req.FiltersReq
 import unionware.base.model.req.LoginReq
 import unionware.base.model.req.MenuCustomResp
 import unionware.base.model.resp.UserInfoResp
+import unionware.base.network.exception.ApiException
 import unionware.base.network.request
 import unionware.base.route.URouter
 import unionware.base.util.AppUpdateUtil
+import unionware.base.util.DeviceInfo
 import java.io.File
 import javax.inject.Inject
 
@@ -36,10 +41,15 @@ open class ScanConfigModel @Inject constructor() : BaseViewModel() {
     @Inject
     var api: UserApi? = null//ApiHelper.getInstance().userApi
 
+    @JvmField
+    @Inject
+    var basicApi: BasicApi? = null//ApiHelper.getInstance().userApi
+
     private val startConList: MutableList<String> = mutableListOf()
 
     var menuConfigLiveData: SingleLiveEvent<MenuBean> = SingleLiveEvent()
     var menuLiveData: SingleLiveEvent<MenuCustomResp> = SingleLiveEvent()
+
     /**
      * 检测app版本
      */
@@ -49,6 +59,9 @@ open class ScanConfigModel @Inject constructor() : BaseViewModel() {
      * app文件 下载
      */
     val appFileLiveData: SingleLiveEvent<File?> = SingleLiveEvent()
+
+    val connectFailure: SingleLiveEvent<ApiException?> = SingleLiveEvent()
+    val connectSuccess: SingleLiveEvent<Any?> = SingleLiveEvent()
 
     /**
      * query  查询特色处理  query://场景吗/配置id
@@ -183,6 +196,7 @@ open class ScanConfigModel @Inject constructor() : BaseViewModel() {
         api?.getMenuList()?.request(lifecycle) {
             success {
                 menuLiveData.postValue(it)
+                deviceConnect()
             }
             failure {
                 postShowToastViewEvent(it.errorMsg)
@@ -227,7 +241,7 @@ open class ScanConfigModel @Inject constructor() : BaseViewModel() {
         }
         api?.getAppLastest()?.request(lifecycle) {
             success {
-                if(it == null){
+                if (it == null) {
                     return@success
                 }
                 appVersionLiveData.value = it
@@ -256,5 +270,58 @@ open class ScanConfigModel @Inject constructor() : BaseViewModel() {
                 appFileLiveData.value = file
             }
         }
+    }
+
+
+    @Override
+    fun deviceConnect() {
+        if (!UninowareAppConfig.openHeart) {
+            return
+        }
+        val deviceInfo = getDeviceInfo()
+        basicApi?.deviceConnect(deviceInfo)?.request(lifecycle) {
+            success {
+                //开启服务
+                connectSuccess.postValue(it)
+            }
+            failure {
+                connectFailure.postValue(it)
+            }
+        }
+    }
+
+    /**
+     * {
+     *     "device": {
+     *         "serial": "19148521400675",
+     *         "manufacturer": "Zebra Technologies",
+     *         "product": "TC25",
+     *         "userName": "jenksvc",
+     *         "brand": "Zebra",
+     *         "model": "TC25",
+     *         "machineId": "04-14-30.00-NN-U12-STD",
+     *         "sdkVersion": "25",
+     *         "sysVersion": "7.1.2",
+     *         "language": "zh"
+     *     }
+     * }
+     * @return
+     */
+    private fun getDeviceInfo(): MutableMap<String, String> {
+        val mLoginReq = MMKV.mmkvWithID("app").decodeParcelable("loginReq", LoginReq::class.java)
+        val deviceInfo = DeviceInfo()
+        val deviceInfoMap = mutableMapOf<String, String>().apply {
+            this["serial"] = deviceInfo.getSERIAL()
+            this["manufacturer"] = deviceInfo.getManufacturer()
+            this["product"] = deviceInfo.getDeviceName()
+            this["userName"] = mLoginReq?.username ?: ""
+            this["brand"] = deviceInfo.getBrand()
+            this["model"] = deviceInfo.getModel()
+            this["machineId"] = deviceInfo.getID()
+            this["sdkVersion"] = deviceInfo.getSDK().toString()
+            this["sysVersion"] = deviceInfo.getRELEASE()
+            this["language"] = deviceInfo.getSystemLanguage()
+        }
+        return deviceInfoMap;
     }
 }

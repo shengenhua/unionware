@@ -65,9 +65,13 @@ open class URouter {
                 appRoute[it] = mutableMapOf()
             }
             if (route.haveModule()) {
-                route.module().forEach { module ->
-                    appRoute[it]?.put(module, route)
+//                route.module().forEach { module ->
+                if (route.tag().isEmpty()) {
+                    appRoute[it]?.put(route.tag(), route)
+                } else {
+                    appRoute[it]?.put(route.javaClass.simpleName, route)
                 }
+//                }
             } else {
                 appNoFixedRoute[it] = route
             }
@@ -263,11 +267,11 @@ open class URouter {
                     interceptUnit["$area://$module/$address"]?.invoke(arg) ?: false
                 }*/
                 interceptUnit.containsKey(arg.path) -> {
-                    interceptUnit[arg.path]?.intercept(arg) ?: false
+                    interceptUnit[arg.path]?.intercept(arg) == true
                 }
 
                 interceptUnit.containsKey(module) -> {
-                    interceptUnit[module]?.intercept(arg) ?: false
+                    interceptUnit[module]?.intercept(arg) == true
                 }
 
                 appNoFixedRoute.containsKey(area) -> {
@@ -280,7 +284,31 @@ open class URouter {
                 }
             }.also {
                 if (!it) {
-                    appRoute[area]?.get(module)?.dispose(address, arg)
+                    appRoute[area]?.apply {
+                        this.filterValues {
+                            it.module().contains(module)//获取指定模块的路由
+                        }.apply {
+                            this.filterValues {
+                                it.names().contains(address)//获取指定name的路由
+                            }.also {
+                                if (it.isEmpty()) {
+                                    it.onEach { map ->
+                                        map.value.dispose(address, arg)
+                                    }
+                                } else {
+                                    this.onEach { map ->
+                                        map.value.dispose(address, arg)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    /*val unionwAreRoute=appRoute[area]?.get(module)
+                    if(unionwAreRoute?.names()?.contains(address) == true){
+                        unionwAreRoute.dispose(address, arg)
+                    }else{
+                        unionwAreRoute?.dispose(address, arg)
+                    }*/
                 }
             }
         }
