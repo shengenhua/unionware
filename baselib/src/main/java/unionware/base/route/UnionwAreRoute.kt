@@ -33,7 +33,7 @@ interface UnionwAreRoute {
     /**
      *  当前路由标识，用于区分当前路由
      */
-    fun tag(): String
+    fun tag(): String = ""
 
     /**
      * 初始化
