@@ -1,17 +1,26 @@
 package unionware.base.util
 
+import android.content.Context
 import android.os.Build
+import unionware.base.app.utils.DeviceUtils
 import java.util.Locale
 
 /**
  * Author: sheng
  * Date:2025/5/13
  */
-class DeviceInfo() {
+class DeviceInfo(context: Context) {
+    private val appContext = context.applicationContext
 
     // 设备基础信息
     /**设备序列号、唯一码 */
-    fun getSERIAL() = Build.SERIAL
+    fun getSERIAL(): String? {
+        val serial = Build.getSerial()
+        if (serial.isNotEmpty() && Build.UNKNOWN != serial) {
+            return serial
+        }
+        return DeviceUtils.getDeviceId(appContext)
+    }
 
     /**手机型号 */
     fun getModel() = Build.MODEL

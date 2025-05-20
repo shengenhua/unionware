@@ -192,11 +192,11 @@ open class ScanConfigModel @Inject constructor() : BaseViewModel() {
     /**
      * 获取菜单列表
      */
-    fun getMenuList() {
+    fun getMenuList(context: Context) {
         api?.getMenuList()?.request(lifecycle) {
             success {
                 menuLiveData.postValue(it)
-                deviceConnect()
+                deviceConnect(context)
             }
             failure {
                 postShowToastViewEvent(it.errorMsg)
@@ -274,11 +274,11 @@ open class ScanConfigModel @Inject constructor() : BaseViewModel() {
 
 
     @Override
-    fun deviceConnect() {
+    fun deviceConnect(context: Context) {
         if (!UninowareAppConfig.openHeart) {
             return
         }
-        val deviceInfo = getDeviceInfo()
+        val deviceInfo = getDeviceInfo(context)
         basicApi?.deviceConnect(deviceInfo)?.request(lifecycle) {
             success {
                 //开启服务
@@ -307,11 +307,11 @@ open class ScanConfigModel @Inject constructor() : BaseViewModel() {
      * }
      * @return
      */
-    private fun getDeviceInfo(): MutableMap<String, String> {
+    private fun getDeviceInfo(context: Context): MutableMap<String, String> {
         val mLoginReq = MMKV.mmkvWithID("app").decodeParcelable("loginReq", LoginReq::class.java)
-        val deviceInfo = DeviceInfo()
+        val deviceInfo = DeviceInfo(context)
         val deviceInfoMap = mutableMapOf<String, String>().apply {
-            this["serial"] = deviceInfo.getSERIAL()
+            this["serial"] = deviceInfo.getSERIAL() ?: ""
             this["manufacturer"] = deviceInfo.getManufacturer()
             this["product"] = deviceInfo.getDeviceName()
             this["userName"] = mLoginReq?.username ?: ""

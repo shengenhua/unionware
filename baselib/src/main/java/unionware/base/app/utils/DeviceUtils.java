@@ -19,7 +19,7 @@ public class DeviceUtils {
         try {
             TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
             if (tm != null) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !TextUtils.isEmpty(tm.getImei())) {
+                if (TextUtils.isEmpty(tm.getImei())) {
                     deviceId = tm.getImei();
                 }
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q && !TextUtils.isEmpty(tm.getDeviceId())) {

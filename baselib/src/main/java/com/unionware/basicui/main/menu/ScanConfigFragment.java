@@ -65,7 +65,7 @@ public class ScanConfigFragment extends MainBaseFragment<ScanConfigActivityBindi
             }
         });
         viewModel.getLoginUserLiveData().observe(this, s -> {
-            viewModel.getMenuList();
+            viewModel.getMenuList(getActivity());
         });
 
         viewModel.getMenuConfigLiveData().observe(this, config -> {
