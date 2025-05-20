@@ -66,7 +66,7 @@ open class URouter {
             }
             if (route.haveModule()) {
 //                route.module().forEach { module ->
-                if (route.tag().isEmpty()) {
+                if (!route.tag().isEmpty()) {
                     appRoute[it]?.put(route.tag(), route)
                 } else {
                     appRoute[it]?.put(route.javaClass.simpleName, route)

@@ -59,7 +59,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         mContext = newBase ?: this
 
         getInitTheme()?.apply {
-            setTheme(this)
+            newBase?.setTheme(this)
         }
         initThemeTextSize()
         theme.applyStyle(R.style.ItemSizeTheme, false)
