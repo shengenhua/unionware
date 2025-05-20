@@ -291,7 +291,7 @@ open class URouter {
                             this.filterValues {
                                 it.names().contains(address)//获取指定name的路由
                             }.also {
-                                if (it.isEmpty()) {
+                                if (!it.isEmpty()) {
                                     it.onEach { map ->
                                         map.value.dispose(address, arg)
                                     }
