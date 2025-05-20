@@ -57,12 +57,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
     override fun attachBaseContext(newBase: Context?) {
         super.attachBaseContext(newBase)
         mContext = newBase ?: this
-
-        getInitTheme()?.apply {
-            newBase?.setTheme(this)
-        }
-        initThemeTextSize()
-        theme.applyStyle(R.style.ItemSizeTheme, false)
     }
 
     open fun initThemeTextSize() {
@@ -83,6 +77,12 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        getInitTheme()?.apply {
+            setTheme(this)
+        }
+        initThemeTextSize()
+        theme.applyStyle(R.style.ItemSizeTheme, false)
+
         super.onCreate(savedInstanceState)
         val startTime = SystemClock.elapsedRealtime()
         initFullScreen()

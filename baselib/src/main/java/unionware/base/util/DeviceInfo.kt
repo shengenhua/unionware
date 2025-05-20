@@ -15,7 +15,11 @@ class DeviceInfo(context: Context) {
     // 设备基础信息
     /**设备序列号、唯一码 */
     fun getSERIAL(): String? {
-        val serial = Build.getSerial()
+        val serial = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Build.getSerial()
+        } else {
+            Build.SERIAL
+        }
         if (serial.isNotEmpty() && Build.UNKNOWN != serial) {
             return serial
         }
