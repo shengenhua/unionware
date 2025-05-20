@@ -89,6 +89,13 @@ object ToastUtil {
     }
 
     private fun makeToast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
+        var message = message.let {
+            if (it.length > 500) {
+                it.substring(0, 500) + "..."
+            } else {
+                it
+            }
+        }
         var toast = cacheToastPool["showToast"]
         if (toast?.get() == null) {
             toast = WeakReference(
@@ -141,13 +148,26 @@ object ToastUtil {
     @JvmStatic
     fun showToastCenter(message: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
         try {
-            showShortCenterToast(message.toString(), duration)
+            showShortCenterToast(message.let {
+                if (it.length > 500) {
+                    it.substring(0, 500) + "..."
+                } else {
+                    it
+                }
+            }.toString(), duration)
         } catch (e: Throwable) {
 //            KLog.e(TAG, "Looper exception", e)
         }
     }
 
     private fun makeToastCenter(message: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
+        var message = message.let {
+            if (it.length > 500) {
+                it.substring(0, 500) + "..."
+            } else {
+                it
+            }
+        }
         var toast = cacheToastPool["showToastCenter"]
         if (toast?.get() == null) {
             toast = WeakReference(
@@ -224,7 +244,14 @@ object ToastUtil {
         if (!TextUtils.isEmpty(content)) ToastUtils.make().setTextColor(Color.WHITE)
             .setDurationIsLong(true)
             .setBgColor(ContextCompat.getColor(context!!, R.color.toast_bg))
-            .setNotUseSystemToast().show(content)
+            .setNotUseSystemToast()
+            .show(content?.let {
+                if (it.length > 500) {
+                    it.substring(0, 500) + "..."
+                } else {
+                    it
+                }
+            })
     }
 
     private fun showShortCenterToast(content: String?, duration: Int) {
@@ -248,7 +275,13 @@ object ToastUtil {
                 }
                 setDurationIsLong(Toast.LENGTH_LONG == duration)
             }
-                .show(content)
+                .show(content?.let {
+                    if (it.length > 500) {
+                        it.substring(0, 500) + "..."
+                    } else {
+                        it
+                    }
+                })
         }
     }
 
