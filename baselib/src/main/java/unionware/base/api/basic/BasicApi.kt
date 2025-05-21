@@ -243,7 +243,7 @@ interface BasicApi {
      *
      * @return
      */
-    @POST("UNW.MOM.WebApi.ServicesStub.OpenService.Invoke.common.kdsvc?action=\$Connected")
+    @POST("UNW.MOM.ServicesStub.OpenService.Invoke.common.kdsvc?action=\$Connected")
     fun deviceConnect(@Body map: MutableMap<String, String>): Observable<BaseResponse<Map<String, String>>>
 
     /**
@@ -251,7 +251,7 @@ interface BasicApi {
      *
      * @return
      */
-    @POST("UNW.MOM.WebApi.ServicesStub.OpenService.Invoke.common.kdsvc?action=\$Heartbeat")
+    @POST("UNW.MOM.ServicesStub.OpenService.Invoke.common.kdsvc?action=\$Heartbeat")
     fun deviceHeartbeat(): Observable<BaseResponse<Any>>
 
 //    /**
